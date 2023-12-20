@@ -1,7 +1,8 @@
+from GameDrawer import GameDrawer
+
 from Pile import Pile
 from Board import Board
 from Round import Round
-from GameDrawer import GameDrawer
 
 import itertools
 import pygame
@@ -94,7 +95,7 @@ class Game:
                 drawer.draw_plank(shown_player)
                 drawer.draw_current_move(shown_player)
                 drawer.draw_aux(shown_player)
-                drawer.draw_buttons()
+                # drawer.draw_buttons()
 
             # Update the display
             pygame.display.flip()
