@@ -6,13 +6,13 @@ class Cell:
         "2W": (201, 117, 32),
         "3W": (227, 7, 14),
         "2L": (24, 125, 56),
-        "3L": (93, 25, 230),
+        "3L": (0, 51, 204),
     }
 
     def __init__(self, x, y, multiplier):
         self._x = x
         self._y = y
-        self._multiplier = multiplier
+        self.multiplier = multiplier
         self._tile = None
         self.locked = False
 
@@ -48,7 +48,3 @@ class Cell:
     @property
     def y(self):
         return self._y
-
-    @property
-    def multiplier(self):
-        return self._multiplier

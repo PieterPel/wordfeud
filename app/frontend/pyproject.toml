@@ -1,3 +1,0 @@
-[build-system]
-requires = ["setuptools"]
-wordfeud_frontend = "setuptools"

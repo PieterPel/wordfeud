@@ -1,12 +1,20 @@
-from GameDrawer import GameDrawer
-
 from Pile import Pile
 from Board import Board
 from Round import Round
 
+import sys
+import os
+
 import itertools
 import pygame
 import pygame.freetype  # Import the freetype module
+
+
+# TODO: change to package when finished so this is 100x times better
+print(os.getcwd())
+sys.path.append(f"{os.getcwd()}/app/frontend/src")
+from GameDrawer import GameDrawer
+from ClickHandler import ClickHandler
 
 
 class Game:
@@ -24,6 +32,7 @@ class Game:
         self.pile_iter = iter(self.pile)
         self.round_number = 0
         self.consecutive_passes = 0
+        self.shown_player = self.players[0]
 
     def begin_game(self):
         """
@@ -39,10 +48,10 @@ class Game:
         pygame.init()
 
         drawer = GameDrawer(self)
+        click_handler = ClickHandler(self, drawer)
 
         # Main PyGame loop
-        running = True
-        shown_player = self.players[0]  # TODO: change to correct player
+        running = True  # TODO: change to correct player
         while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -50,52 +59,9 @@ class Game:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     mouse_pos = pygame.mouse.get_pos()
+                    click_handler.handle_click(mouse_pos)
 
-                    # Check if an empty space on the board has been clicked on
-                    for (
-                        coordinates,
-                        rect,
-                    ) in drawer.coordinates_empty_cells.items():
-                        if (
-                            rect.collidepoint(mouse_pos)
-                            and shown_player.selected_tile is not None
-                            and (
-                                coordinates
-                                not in list(shown_player.current_move.values())
-                            )
-                        ):
-                            shown_player.lay_tile_on_board(
-                                shown_player.selected_tile, coordinates
-                            )
-                            print("Think there is an empty cell")
-
-                    # Check if a tile has been clicked on
-                    for tile, rect in drawer.tile_rects.items():
-                        if rect.collidepoint(mouse_pos):
-                            shown_player.select_tile(tile)
-
-                    # Check if an empty plank space has been clicked on
-                    for (
-                        index,
-                        rect,
-                    ) in drawer.empty_tiles_on_pank_index.items():
-                        if (
-                            rect.collidepoint(mouse_pos)
-                            and shown_player.selected_tile is not None
-                        ):
-                            shown_player.put_tile_on_plank(
-                                shown_player.selected_tile, index
-                            )
-
-                    # Check if a button has been clicked on
-
-                # Maybe return the elements that are drawn here, so the mouse can pick it up?
-                drawer.reset_dicts()
-                drawer.draw_board()
-                drawer.draw_plank(shown_player)
-                drawer.draw_current_move(shown_player)
-                drawer.draw_aux(shown_player)
-                # drawer.draw_buttons()
+                drawer.draw_all(self.shown_player)
 
             # Update the display
             pygame.display.flip()
@@ -120,7 +86,9 @@ class Game:
         Start a new round.
         """
         self.round_number += 1
-        self.round = Round(self, next(self.players_iter))
+        next_player = next(self.players_iter)
+        self.shown_player = next_player
+        self.round = Round(self, next_player)
 
     def end_game(self):
         """

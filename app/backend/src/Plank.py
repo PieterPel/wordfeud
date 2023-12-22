@@ -11,6 +11,10 @@ class Plank:
     def full(self) -> bool:
         return not any([x is None for x in self._tile_list])
 
+    @property
+    def empty(self) -> bool:
+        return all([x is None for x in self._tile_list])
+
     def add_tile(self, tile: Tile, index=None):
         if self.full:
             raise ValueError("This plank is full!")

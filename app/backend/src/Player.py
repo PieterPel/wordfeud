@@ -62,26 +62,15 @@ class Player:
         """
         Exits the current game and resets player's attributes.
         """
-        self.game = None
-        self.plank = Plank()
+        self._game = None
+        self._plank = Plank()
         self.score = 0
 
-    # TODO: implement
     def begin_turn(self):
         """
         Begins the player's turn.
         """
         self.laying = True
-
-        # Rough workflow:
-
-        # Option 1) Skip
-        # Option 2) Swap
-        # Option 3) Select a tile
-
-        # Put on board or on plank
-
-        # If put on board, add to the current_move dictionary
 
     def select_tile(self, tile: Tile):
         """
@@ -115,12 +104,11 @@ class Player:
 
         # Check whether cell filled at those coordinates
         if self.game.board[(x, y)].filled:
-            raise ValueError(
-                "This cell is already filled"
-            )  # TODO handle error better, just do nothing maybe?
+            raise ValueError("This cell is already filled")
         # Check whether already tile on board as part of current move
         if coordinates in self.current_move.values():
             # Get the key for which the condition is true
+            print("Trying to swap")
             current_tile = next(
                 key
                 for key, value in self.current_move.items()
@@ -128,10 +116,9 @@ class Player:
             )
             del self.current_move[current_tile]
             self.selected_tile = current_tile
-
         else:
-            self.current_move[tile] = coordinates
             self.selected_tile = None
+        self.current_move[tile] = coordinates
 
         print(f"Current move: {self.current_move}")
 
@@ -200,7 +187,7 @@ class Player:
         self.draw_tiles()
 
         # End the game or begin a new round
-        if len(self.plank) == 0 or (
+        if self.plank.empty or (
             self.game.consecutive_passes > 2 * len(self.game.players)
         ):
             self.game.end_game()

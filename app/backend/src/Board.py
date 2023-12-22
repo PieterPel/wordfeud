@@ -1,17 +1,5 @@
 from Cell import Cell
-
-
-def checkConsecutive(li):
-    """
-    Check if a list contains consecutive numbers.
-
-    Args:
-        li (list): The list to check.
-
-    Returns:
-        bool: True if the list contains consecutive numbers, False otherwise.
-    """
-    return sorted(li) == list(range(min(li), max(li) + 1))
+from LegalityChecker import LegalityChecker
 
 
 class Board:
@@ -22,8 +10,79 @@ class Board:
     word_set = set()
     HEIGHT = 15
     LENGTH = 15
+    MIDDLE = (7, 7)
 
-    LOC_MULTIPLIERS = {(0, 0): "3L", (1, 1): "2W"}
+    LOC_MULTIPLIERS = {
+        # Bottom left quadrant
+        (0, 0): "3L",
+        (1, 1): "2L",
+        (2, 2): "2W",
+        (3, 3): "3L",
+        (4, 4): "2W",
+        (5, 5): "3L",
+        (0, 4): "3W",
+        (1, 5): "3L",
+        (2, 6): "2L",
+        (4, 6): "2L",
+        (4, 0): "3W",
+        (5, 1): "3L",
+        (6, 2): "2L",
+        (6, 4): "2L",
+        # Top left quadrant
+        (0, 14): "3L",
+        (1, 13): "2L",
+        (2, 12): "2W",
+        (3, 11): "3L",
+        (4, 10): "2W",
+        (5, 9): "3L",
+        (0, 10): "3W",
+        (1, 9): "3L",
+        (2, 8): "2L",
+        (4, 8): "2L",
+        (4, 14): "3W",
+        (5, 13): "3L",
+        (6, 12): "2L",
+        (6, 10): "2L",
+        # Bottom right quadrant
+        (14, 0): "3L",
+        (13, 1): "2L",
+        (12, 2): "2W",
+        (11, 3): "3L",
+        (10, 4): "2W",
+        (9, 5): "3L",
+        (14, 4): "3W",
+        (13, 5): "3L",
+        (12, 6): "2L",
+        (12, 8): "2L",
+        (10, 0): "3W",
+        (9, 1): "3L",
+        (8, 2): "2L",
+        (8, 4): "2L",
+        # Top right quadrant
+        (14, 14): "3L",
+        (13, 13): "2L",
+        (12, 12): "2W",
+        (11, 11): "3L",
+        (10, 10): "2W",
+        (9, 9): "3L",
+        (14, 10): "3W",
+        (13, 9): "3L",
+        (12, 8): "2L",
+        (10, 8): "2L",
+        (10, 14): "3W",
+        (9, 13): "3L",
+        (8, 12): "2L",
+        (8, 10): "2L",
+        # Cross
+        (7, 0): "2L",
+        (7, 3): "2W",
+        (0, 7): "2L",
+        (3, 7): "2W",
+        (7, 14): "2L",
+        (7, 11): "2W",
+        (14, 7): "2L",
+        (11, 7): "2W",
+    }
 
     def __init__(self):
         """
@@ -31,6 +90,7 @@ class Board:
         """
         self.grid = self._set_up_grid()
         self.filled_coordinates = []
+        self.legality_checker = LegalityChecker(self)
 
     def _set_up_grid(self) -> dict:
         """
@@ -58,77 +118,8 @@ class Board:
         Returns:
             bool: True if the move is legal, False otherwise.
         """
-        coordinates = list(move.values())
 
-        if not self._correct_coordinates(coordinates):
-            return False
-
-        new_words = self.get_new_words(move)
-        if new_words.issubset(self.word_set):
-            return True
-        else:
-            print(f"{new_words - self.word_set} is/aren't allowed")
-            return False
-
-    def _correct_coordinates(self, coordinates: list) -> bool:
-        """
-        Check if the given coordinates can make up a correct move.
-
-        Args:
-            coordinates (list): The coordinates to check.
-
-        Returns:
-            bool: True if the coordinates are correct, False otherwise.
-        """
-        coordinate_check = [
-            True if x > self.LENGTH or y > self.HEIGHT else False
-            for x, y in coordinates
-        ]
-        if any(coordinate_check):
-            print("At least one of these coordinates is too large")
-            return False
-
-        if not len(set(coordinates)) == len(coordinates):
-            print("There are duplicate coordinates")
-            return False
-
-        filled_check = [
-            True if self[x][y].filled else False for x, y in coordinates
-        ]
-        if any(filled_check):
-            print("Illegal move, one of the cells is already filled")
-            return False
-
-        all_x = [x for x, _ in coordinates]
-        all_y = [y for _, y in coordinates]
-        if not (
-            len(set(all_x)) == 1
-            and checkConsecutive(all_y)
-            or len(set(all_y)) != 1
-            and checkConsecutive(all_x)
-        ):
-            print("The tiles aren't in a straight line")
-            return False
-
-        if not any(
-            coord in self.required_coordinates() for coord in coordinates
-        ):
-            return False
-
-        return True
-
-    def required_coordinates(self) -> set:
-        """
-        Get the coordinates of the filled cells and their neighbors.
-
-        Returns:
-            set: The set of required coordinates.
-        """
-        filled_neighbors = set()
-        for x, y in self.filled_coordinates:
-            neighbors = [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
-            filled_neighbors.update(neighbors)
-        return filled_neighbors
+        return self.legality_checker.legal_move(move)
 
     def lay_word_on_board(self, move: dict) -> None:
         """
@@ -137,23 +128,16 @@ class Board:
         Args:
             move (dict): The move to lay on the board.
         """
-        self.filled_coordinates.extend(list(move.keys()))
+        self.filled_coordinates.extend(list(move.values()))
 
         for tile, coordinates in move.items():
             x, y = coordinates
-            self[x][y].tile = tile
+            self[x, y].tile = tile
+            self[x, y].multiplier = ""
 
-    def get_new_words(self, move: dict) -> set:
-        """
-        Get the new words created by the move.
-
-        Args:
-            move (dict): The move to check.
-
-        Returns:
-            set: The set of new words.
-        """
-        new_words = set()
+    # TODO: properly implement
+    def get_points_of_move(self, move: dict):
+        points = 0
 
         for tile, coordinates in move.items():
             x, y = coordinates
@@ -161,8 +145,8 @@ class Board:
             def scan_direction(dx, dy):
                 scanner_x, scanner_y = x + dx, y + dy
                 letters = ""
-                while self[scanner_x][scanner_y].filled:
-                    letters += self[scanner_x][scanner_y].letter
+                while self.board[scanner_x, scanner_y].filled:
+                    letters += self.board[scanner_x, scanner_y].letter
                     scanner_x += dx
                     scanner_y += dy
                 return letters
@@ -181,7 +165,7 @@ class Board:
                 if len(word) > 1
             )
 
-        return new_words
+        return points
 
     def __getitem__(self, coordinates: tuple):
         x, y = coordinates

@@ -1,21 +1,17 @@
 from Player import Player
-from Tile import Tile
 from Game import Game
 
 
 def main():
     # Create a Player instance
-    player = Player("pete")
+    player1 = Player("pete")
+    player2 = Player("Mike")
 
     # Create a Game instance
-    game = Game([player])
-    board = game.board
-    tile = Tile("B", 4)
-    board[0, 1].tile = tile
+    game = Game([player1, player2])
 
     game.begin_game()
 
 
 if __name__ == "__main__":
-    print("test")
     main()
