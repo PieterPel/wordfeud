@@ -2,6 +2,31 @@ from Cell import Cell
 from LegalityChecker import LegalityChecker
 
 
+def get_points_of_word(points, muls):
+    # Letters dont make words
+    if len(points) < 2:
+        return 0
+    else:
+        word_points = 0
+        total_word_mul = 1
+        for point, mul in zip(points, muls):
+            match mul:
+                case "":
+                    word_points += point
+                case "2L":
+                    word_points += 2 * point
+                case "3L":
+                    word_points += 3 * point
+                case "2W":
+                    word_points += point
+                    total_word_mul *= 2
+                case "3W":
+                    word_points += point
+                    total_word_mul *= 3
+
+        return total_word_mul * word_points
+
+
 class Board:
     """
     Represents the game board.
@@ -135,37 +160,104 @@ class Board:
             self[x, y].tile = tile
             self[x, y].multiplier = ""
 
-    # TODO: properly implement
-    def get_points_of_move(self, move: dict):
-        points = 0
+    def get_points_of_move(self, move: dict) -> int:
+        """
+        Get the new words created by the move.
+
+        Args:
+            move (dict): The move to check.
+
+        Returns:
+            set: The set of new words.
+        """
+        reverse_move_dict = {value: key for key, value in move.items()}
+        total_points = 0
+        scanned_vertically = False
+        scanned_horizontally = False
+        move_direction = move.get_direction()
 
         for tile, coordinates in move.items():
             x, y = coordinates
 
             def scan_direction(dx, dy):
+                # Initialize
                 scanner_x, scanner_y = x + dx, y + dy
                 letters = ""
-                while self.board[scanner_x, scanner_y].filled:
-                    letters += self.board[scanner_x, scanner_y].letter
+                multipliers = []
+                points = []
+
+                # While there is a tile, store the letter (points and multiplier)
+                while self[scanner_x, scanner_y].filled or (
+                    scanner_x,
+                    scanner_y,
+                ) in list(move.values()):
+                    # If the tile is on the board
+                    if self[scanner_x, scanner_y].filled:
+                        scanned_tile = self[scanner_x, scanner_y].tile
+
+                    # If the tile is in the move
+                    else:
+                        scanned_tile = reverse_move_dict[
+                            (scanner_x, scanner_y)
+                        ]
+
+                    # Update letters, points and multipliers
+                    letters += scanned_tile.letter
+                    points.append(scanned_tile.points)
+                    multipliers.append(self[scanner_x, scanner_y].multiplier)
+
                     scanner_x += dx
                     scanner_y += dy
-                return letters
 
-            letters_above = scan_direction(0, 1)
-            letters_below = scan_direction(0, -1)
-            letters_left = scan_direction(-1, 0)
-            letters_right = scan_direction(1, 0)
+                return {
+                    "letters": letters,
+                    "points": points,
+                    "multipliers": multipliers,
+                }
 
-            new_words.update(
-                word
-                for word in [
-                    f"{letters_above[::-1]}{tile.letter}{letters_below}",
-                    f"{letters_left[::-1]}{tile.letter}{letters_right}",
-                ]
-                if len(word) > 1
-            )
+            # Scan vertically
+            if not (scanned_vertically and move_direction == "Vertical"):
+                above = scan_direction(0, 1)
+                below = scan_direction(0, -1)
 
-        return points
+                # Update points of vertical scan
+                points_vertical = (
+                    above["points"] + [tile.points] + below["points"]
+                )
+                muls_vertical = (
+                    above["multipliers"]
+                    + [self[x, y].multiplier]
+                    + below["multipliers"]
+                )
+
+                total_points += get_points_of_word(
+                    points_vertical, muls_vertical
+                )
+                scanned_vertically = True
+
+            # Scan horizontally
+            if not (scanned_horizontally and move_direction == "Horizontal"):
+                left = scan_direction(-1, 0)
+                right = scan_direction(1, 0)
+
+                # Update points of horizontal scan
+                points_horizontal = (
+                    left["points"] + [tile.points] + right["points"]
+                )
+
+                muls_horizontal = (
+                    left["multipliers"]
+                    + [self[x, y].multiplier]
+                    + right["multipliers"]
+                )
+
+                total_points += get_points_of_word(
+                    points_horizontal, muls_horizontal
+                )
+
+                scanned_horizontally = True
+
+        return total_points
 
     def __getitem__(self, coordinates: tuple):
         x, y = coordinates

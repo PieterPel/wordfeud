@@ -127,13 +127,10 @@ class LegalityChecker:
         for tile, coordinates in move.items():
             x, y = coordinates
 
-            # TODO: currently the word that is created in the direction of the move itself isn't checked
-
             def scan_direction(dx, dy):
                 # Initialize
                 scanner_x, scanner_y = x + dx, y + dy
                 letters = ""
-                direction_new_word_scanned = True
 
                 # While there is a tile, store the letter
                 while self.board[scanner_x, scanner_y].filled or (

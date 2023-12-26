@@ -1,6 +1,7 @@
 from Plank import Plank
 from Game import Game
 from Tile import Tile
+from Move import Move
 
 
 # Very hacky but it works
@@ -29,7 +30,7 @@ class Player:
         self.laying = False
 
         self.selected_tile = None
-        self.current_move = {}
+        self.current_move = Move()
 
     @property
     def in_game(self):
@@ -140,11 +141,10 @@ class Player:
         Lays a word on the game board as part of the player's move.
         """
         if self.game.board.legal_move(self.current_move):
+            self.score += self.game.board.get_points_of_move(self.current_move)
             self.game.board.lay_word_on_board(self.current_move)
             self.game.consecutive_passes = 0
             self.current_move = {}
-
-            # TODO: Add score to total score
 
             self.end_turn()
         else:
