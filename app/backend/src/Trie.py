@@ -113,7 +113,9 @@ class Trie(object):
 
         return set(node.children.keys())
 
-    def generate_prefix_combinations(self, max_length, available_letters):
+    def generate_prefix_combinations(
+        self, max_length, available_letters
+    ) -> set:
         """
         Generate all possible prefixes using the available letters,
         ensuring that each prefix can form at least one word by adding
@@ -126,11 +128,11 @@ class Trie(object):
         Returns:
             List of prefixes
         """
-        output = [""]
+        output = {""}
 
         length = 1
         while length <= (max_length):
-            new_prefixes = []
+            new_prefixes = set()
 
             # Go one level deeper, using already existing output
             for prefix in output:
@@ -147,13 +149,13 @@ class Trie(object):
                 # Cycle over the remaing letters
                 for letter in remaining_letters:
                     if self.query(prefix + letter) != []:
-                        new_prefixes.append(prefix + letter)
+                        new_prefixes.add(prefix + letter)
                     # Check for a blanc
                     elif letter == " ":
                         for child in self.get_children(prefix):
-                            new_prefixes.append(prefix + child)
+                            new_prefixes.add(prefix + child)
 
-            output.extend(new_prefixes)
+            output.update(new_prefixes)
             length += 1
 
         return output

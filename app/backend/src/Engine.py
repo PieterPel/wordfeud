@@ -17,12 +17,12 @@ class Engine:
 
             # Loop over all anchors
             for anchor in anchors:
+                print(f"Now checking anchor: {anchor}")
                 # Get possible left extensions
                 (
                     left_extension_fixed,
                     left_extensions_plank,
                 ) = self.get_left_extensions(anchor, plank, anchors)
-
                 # Check if there is a fixed left_extension
                 if left_extension_fixed != "":
                     words = self.get_possible_words_from_left_extension(
@@ -45,10 +45,6 @@ class Engine:
 
                 # Else there may be possiblities with the plank or without a left extension
                 else:
-                    print(
-                        f"# of left extensions: {len(left_extensions_plank)}"
-                    )
-                    print(left_extensions_plank)
                     for extension in left_extensions_plank:
                         # Figure out which letters remain on the plank
                         used_letters = [letter for letter in extension]
@@ -173,7 +169,7 @@ class Engine:
     def get_left_extensions(self, anchor, plank, anchors):
         x, y = anchor
         laid_on_left = ""
-        possible_with_plank = [""]
+        possible_with_plank = set("")
 
         # Check if anchor on the left side of the board
         if x == 0:
@@ -201,9 +197,7 @@ class Engine:
 
         return laid_on_left, possible_with_plank
 
-    def get_possible_left_plank_extensions(
-        self, max_length, plank
-    ) -> list[str]:
+    def get_possible_left_plank_extensions(self, max_length, plank) -> set:
         return self.trie.generate_prefix_combinations(
             max_length, plank.letters
         )
@@ -243,10 +237,11 @@ class Engine:
             )
         ):
             scanned_coords = (x + dx, y)
+            dx += 1
 
             # Check if there already is a tile
             if self.board[scanned_coords].filled:
-                laid_down.append(self.board[(x + dx, y)].tile.letter)
+                laid_down.append(self.board[scanned_coords].tile.letter)
             else:
                 num_non_fixed += 1
                 laid_down.append(None)
@@ -365,6 +360,9 @@ def grab_letter_from_tile_list(tile_list, letter):
     # Also removes the letter from the list
     # Check for the letter on the tiles
     for tile in tile_list:
+        if tile is None:
+            continue
+
         if tile.letter == " ":
             blank = tile
 
@@ -377,4 +375,5 @@ def grab_letter_from_tile_list(tile_list, letter):
         tile_list.remove(blank)
         return blank
     else:
+        print(letter)
         raise ValueError("This list cannot provide that letter or a blank")

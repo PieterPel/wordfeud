@@ -8,7 +8,7 @@ def main():
     player2 = Player("Mike")
 
     # Create a Game instance
-    game = Game([player1])
+    game = Game([player1, player2])
 
     game.begin_game()
 

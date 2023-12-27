@@ -76,3 +76,9 @@ class ClickHandler:
                         pass  # TODO: implement
                     case "Pass":
                         self.game.shown_player.skip()
+                    case "Engine":
+                        for m in self.game.engine.find_possible_moves(
+                            self.game.shown_player.plank
+                        ):
+                            print(m)
+                            print(type(m))

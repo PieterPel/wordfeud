@@ -69,12 +69,6 @@ class Game:
 
             # Update the display
             pygame.display.flip()
-            if self.round_number == 3 and not turned:
-                self.board = self.board.get_turned_board()
-                print(self.board.filled_coordinates)
-                drawer = GameDrawer(self)
-                click_handler = ClickHandler(self, drawer)
-                turned = True
 
     def distribute_tiles(self):
         """
@@ -99,11 +93,6 @@ class Game:
         next_player = next(self.players_iter)
         self.shown_player = next_player
         self.round = Round(self, next_player)
-
-        # Test the engine
-        moves = self.engine.find_possible_moves(self.shown_player.plank)
-        print(moves[:20])
-        print(len(moves))
 
     def end_game(self):
         """

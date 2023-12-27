@@ -7,7 +7,7 @@ class ButtonDrawer:
 
     def __init__(self, game_drawer):
         self.game_drawer = game_drawer
-        self.buttons = ["Play", "Clear", "Swap", "Pass"]
+        self.buttons = ["Play", "Clear", "Swap", "Pass", "Engine"]
         self.WIDTH = 2 * self.game_drawer.CELL_SIZE
 
     def draw_button(self, text, x, y):

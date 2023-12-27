@@ -28,8 +28,8 @@ with open(
 
         # TODO: abbreviations are still allowed
 
-        # Remove one letter "words" and words that are larger than the board
-        if len(word[:-1]) == 1 or len(word[:-1]) >= 15:
+        # Remove small words (add back manually) and words that are larger than the board
+        if len(word[:-1]) < 3 or len(word[:-1]) >= 15:
             continue
 
         # Convert diecritics to normal letters by converting to unicode
@@ -39,7 +39,7 @@ with open(
         word = word.replace("'", "")
 
         # Add word to edited word list
-        edited_wordlist.write(word + "")
+        edited_wordlist.write(word)
 
         # Add conjunctive and weird forms form by using the set of verbs
         if word in verb_set and word[-3:-1] == "en":
@@ -47,4 +47,10 @@ with open(
             edited_wordlist.write(f"{word[:-1]}den\n")
             edited_wordlist.write(f"{word[:-1]}de\n")
 
-# TODO: add all two and three letter wordfeud words, remove two and three letter words that arent allowed
+with open(
+    realpath(join(dirname(__file__), "../wordlists/two-letter-words.txt")), "r"
+) as two_letter_words, open(
+    realpath(join(dirname(__file__), "../wordlists/wordlist-edited.txt")), "a"
+) as edited_wordlist:
+    for word in two_letter_words:
+        edited_wordlist.write(word)

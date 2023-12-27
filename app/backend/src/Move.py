@@ -20,9 +20,9 @@ class Move(UserDict):
 
     def get_turned_move(self):
         # transpose, then flip columns
-        turned_move = {
-            tile: (y, self.HEIGHT - 1 - x) for tile, (x, y) in self.items()
-        }
+        turned_move = Move(
+            {tile: (y, self.HEIGHT - 1 - x) for tile, (x, y) in self.items()}
+        )
 
         return turned_move
 
