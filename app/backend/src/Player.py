@@ -133,7 +133,7 @@ class Player:
             self.plank.add_tile(tile)
 
         # Empty current move
-        self.current_move = {}
+        self.current_move = Move()
 
     @only_on_turn
     def play_current_move(self):
@@ -144,7 +144,7 @@ class Player:
             self.score += self.game.board.get_points_of_move(self.current_move)
             self.game.board.lay_word_on_board(self.current_move)
             self.game.consecutive_passes = 0
-            self.current_move = {}
+            self.current_move = Move()
 
             self.end_turn()
         else:

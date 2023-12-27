@@ -31,6 +31,30 @@ class Plank:
             None if tile in tiles else self[i] for i, tile in enumerate(self)
         ]
 
+    def get_tile_with_letter(self, letter: str) -> Tile:
+        # Check for the letter on the tiles
+        for tile in self:
+            if tile.letter == letter:
+                return tile
+
+        # Return a blank if nto found and avalable
+        if " " in self.letters:
+            return self.get_tile_with_letter(" ")
+        else:
+            raise ValueError("This plank cannot provide that tile or a blank")
+
+    @property
+    def letters(self) -> list:
+        letter_list = []
+        for el in self:
+            if el is not None:
+                letter_list.append(el.letter)
+        return letter_list
+
+    @property
+    def tile_list(self):
+        return self._tile_list
+
     def __getitem__(self, index):
         return self._tile_list[index]
 

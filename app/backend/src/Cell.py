@@ -36,7 +36,7 @@ class Cell:
 
     @tile.setter
     def tile(self, new_tile):
-        # self._multiplier = ""  # TODO think whether this can happen here or if the points are awarded after this point
+        self._multiplier = ""
         self._tile = new_tile
         self.locked = True
 

@@ -1,10 +1,15 @@
 from Cell import Cell
 from LegalityChecker import LegalityChecker
+import os
+import copy
+
+BINGO_BONUS = 40
 
 
 def get_points_of_word(points, muls):
     # Letters dont make words
-    if len(points) < 2:
+    length = len(points)
+    if length < 2:
         return 0
     else:
         word_points = 0
@@ -24,7 +29,22 @@ def get_points_of_word(points, muls):
                     word_points += point
                     total_word_mul *= 3
 
-        return total_word_mul * word_points
+        if length == 7:
+            points = total_word_mul * word_points + BINGO_BONUS
+        else:
+            points = total_word_mul * word_points
+
+        return points
+
+
+def get_word_set():
+    word_set = set()
+    with open(
+        f"{os.getcwd()}/wordlists/wordlist-edited.txt", "r"
+    ) as word_list:
+        for word in word_list:
+            word_set.add(word[:-1].upper())  # Remove "\n"
+    return word_set
 
 
 class Board:
@@ -32,10 +52,10 @@ class Board:
     Represents the game board.
     """
 
-    word_set = set()
     HEIGHT = 15
     LENGTH = 15
     MIDDLE = (7, 7)
+    WORD_SET = get_word_set()
 
     LOC_MULTIPLIERS = {
         # Bottom left quadrant
@@ -158,7 +178,6 @@ class Board:
         for tile, coordinates in move.items():
             x, y = coordinates
             self[x, y].tile = tile
-            self[x, y].multiplier = ""
 
     def get_points_of_move(self, move: dict) -> int:
         """
@@ -261,4 +280,32 @@ class Board:
 
     def __getitem__(self, coordinates: tuple):
         x, y = coordinates
-        return self.grid[x][y]
+
+        # Return an empty cell if the coordinate arent on the board
+        if x < 0 or y < 0 or x > self.LENGTH - 1 or y > self.HEIGHT:
+            return Cell(-1, -1, "")
+        # Else return the cell at the grid
+        else:
+            return self.grid[x][y]
+
+    def get_turned_board(self):
+        copy_board = copy.deepcopy(self)
+
+        # Transpose and reverse the grid
+        copy_board.grid = {
+            self.LENGTH
+            - 1
+            - x: {
+                self.HEIGHT - 1 - y: copy_board.grid[y][x]
+                for y in range(copy_board.HEIGHT)
+            }
+            for x in range(copy_board.LENGTH)
+        }
+
+        # Update filled_coordinates with the rotated coordinates
+        copy_board.filled_coordinates = [
+            (self.LENGTH - 1 - y, self.HEIGHT - 1 - x)
+            for x, y in copy_board.filled_coordinates
+        ]
+
+        return copy_board

@@ -1,8 +1,7 @@
 class LegalityChecker:
-    WORD_SET = set()
-
     def __init__(self, board):
         self.board = board
+        self.WORD_SET = self.board.WORD_SET
 
     def legal_move(self, move: dict) -> bool:
         """
@@ -21,9 +20,7 @@ class LegalityChecker:
 
         new_words = self.get_new_words(move)
         print(f"Formed words: {new_words}")
-        if (
-            new_words.issubset(self.WORD_SET) or True
-        ):  # TODO: add proper word list
+        if new_words.issubset(self.WORD_SET):
             return True
         else:
             print(f"{new_words - self.WORD_SET} is/aren't allowed")
@@ -163,7 +160,6 @@ class LegalityChecker:
                 ]
                 if len(word) > 1
             )
-
         return new_words
 
 
