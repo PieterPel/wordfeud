@@ -13,9 +13,14 @@ class Engine:
     def find_possible_moves(self, plank) -> set:
         anchors = self.get_anchors()
         vertical_dict = self.get_verticality_allowed(anchors, plank)
+        extension_dict = self.get_extension_dicts(anchors, plank)
 
         def get_horizontal_moves(anchors, vertical_dict) -> set:
+            nonlocal plank
+
             moves = []
+
+            # TODO: First get the maximum length of left extensions needed
 
             # Loop over all anchors
             for anchor in anchors:
@@ -84,20 +89,22 @@ class Engine:
         # Horizontal moves for normal board
         moves.extend(get_horizontal_moves(anchors, vertical_dict))
 
+        print("Should start the turned board now")
+
         # Horizontal moves for turned board
-        anchors = set(
-            (self.board.LENGTH - 1 - y, self.board.HEIGHT - 1 - x)
-            for (x, y) in anchors
-        )
-        vertical_dict = {
-            (self.board.LENGTH - 1 - y, self.board.HEIGHT - 1 - x): constraints
-            for (x, y), constraints in vertical_dict.items()
-        }
+        # TODO add back in since it should work
+        # vertical_dict = {
+        #     (self.board.LENGTH - 1 - y, self.board.HEIGHT - 1 - x): constraints
+        #     for (x, y), constraints in vertical_dict.items()
+        # }
+        # anchors = set(vertical_dict.keys())
         turned_board = self.board.get_turned_board()
 
         # Temporarily change the board (very ugly code I know)
         normal_board = self.board
         self.board = turned_board
+        anchors = self.get_anchors()
+        vertical_dict = self.get_verticality_allowed(anchors, plank)
         normal_moves = [
             move.get_turned_move()
             for move in get_horizontal_moves(anchors, vertical_dict)
@@ -123,6 +130,7 @@ class Engine:
                 neighbor
                 for neighbor in neighbors
                 if not self.board[neighbor].filled
+                and self.coordinates_on_board(neighbor)
             ]
             anchors.update(empty_neighbors)
 
@@ -147,22 +155,24 @@ class Engine:
             # Scan down
             dy = 1
             down = ""
-            while y + dy >= 0 and self.board[(x, y + dy)].filled:
-                down += self.board[(x, y + dy)].tile.letter
-                dy -= 1
+            while y - dy >= 0 and self.board[(x, y - dy)].filled:
+                down += self.board[(x, y - dy)].tile.letter
+                dy += 1
 
             # If nothing up and down everything is allowed
             if up == "" and down == "":
                 if " " in plank.letters:
-                    allowed[anchor] = self.ALL_LETTER_LIST
+                    allowed_letters = self.ALL_LETTER_LIST
                 else:
-                    allowed[anchor] = plank.letters
+                    allowed_letters = plank.letters
             else:
                 # If word is allowed, add to dictionary
                 allowed_letters = []
                 for tile in plank:
                     # Determine which letters to check
-                    if tile.blank:
+                    if tile is None:
+                        continue
+                    elif tile.blank:
                         letters = self.ALL_LETTER_LIST
                     else:
                         letters = [tile.letter]
@@ -172,7 +182,9 @@ class Engine:
                         formed_word = f"{up[::-1]}{letter}{down}"
                         if formed_word in self.board.WORD_SET:
                             allowed_letters.append(letter)
-                allowed[anchor] = allowed_letters
+            allowed[anchor] = allowed_letters
+
+            print(f"For anchor {anchor}, {allowed_letters} are allowed")
 
         return allowed
 
@@ -202,10 +214,11 @@ class Engine:
             ):
                 dx += 1
             possible_with_plank = self.get_possible_left_plank_extensions(
-                dx, plank
+                dx - 1, plank
             )
 
-        return laid_on_left, possible_with_plank
+        # TODO: Option;: just return dx - 1 here instead of possible_with_plank, later check maximum value, calculate possible extensions and only use those with a maximum length
+        return laid_on_left[::-1], possible_with_plank
 
     def get_possible_left_plank_extensions(self, max_length, plank) -> set:
         return self.trie.generate_prefix_combinations(
@@ -269,16 +282,20 @@ class Engine:
                 vertically_allowed.append(letters_remaining_on_plank)
 
         # First options are the possibilities at the anchor
-        extensions = set(option for option in anchor_options_set)
+        extensions = anchor_options_set
+        dead_extensions = set()
 
         # Look at right extensions until the maximum possible depth
         for index, (fixed_letter, vertical_allowed_tiles) in enumerate(
             zip(laid_down, vertically_allowed)
         ):
+            new_extensions = set()
+            infeasible_extensions = set()
             # Loop over all already available prefixes
             for extension in extensions:
                 # Skip if the prefix has a length that is too short i.e. had no options in previous run
-                if len(extension) - 2 < index:
+                # if len(extension) - 2 < index: # Had this here first
+                if extension in dead_extensions:
                     continue
 
                 # If there is no tile already laid down
@@ -314,14 +331,21 @@ class Engine:
                             )
                         )
 
+                    if options == set():
+                        dead_extensions.add(extension)
+
                     # Add the options
                     for option in options:
-                        extensions.add(extension + option)
+                        new_extensions.add(extension + option)
 
                 # If there is a tile already laid down, the prefix actually can't be laid down
                 else:
-                    extensions.remove(extension)
-                    extensions.add(extension + fixed_letter)
+                    infeasible_extensions.add(extension)
+                    new_extensions.add(extension + fixed_letter)
+
+            # Add new extensions and remove infeasible ones
+            extensions.update(new_extensions)
+            extensions -= infeasible_extensions
 
         # Generate the possible words
         for extension in extensions:
@@ -371,6 +395,7 @@ class Engine:
                 dx = -len(left_extension)
 
                 for letter in word:
+                    print(x + dx, y, letter)
                     if self.board[(x + dx, y)].filled:
                         dx += 1
                         continue
@@ -381,6 +406,15 @@ class Engine:
 
                 moves.append(move)
         return moves
+
+    def coordinates_on_board(self, coords: tuple):
+        x, y = coords
+        if x < 0 or y < 0:
+            return False
+        elif x >= self.board.LENGTH or y >= self.board.HEIGHT:
+            return False
+        else:
+            return True
 
 
 def grab_letter_from_tile_list(tile_list, letter):
@@ -405,5 +439,6 @@ def grab_letter_from_tile_list(tile_list, letter):
             letter  # TODO: check if this isn't very memory intensive
         )
         return blank_copy
-    except ValueError:
+    except UnboundLocalError:
+        print(f"Letter: {letter}, list: {tile_list}")
         raise ValueError("This list cannot provide that letter or a blank")

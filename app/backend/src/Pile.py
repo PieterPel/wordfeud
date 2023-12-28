@@ -67,10 +67,12 @@ class Pile:
         self.tile_list = self._set_up_list()
 
     def _set_up_list(self):
-        tile_list = [
-            Tile(letter, points)
-            for letter, points in self.LETTER_POINTS.items()
-        ]
+        tile_list = []
+
+        for letter, amount in self.INITIAL_AMOUNTS.items():
+            tile = Tile(letter, self.LETTER_POINTS[letter])
+            tile_list.extend(amount * [tile])
+
         random.shuffle(tile_list)
         return tile_list
 

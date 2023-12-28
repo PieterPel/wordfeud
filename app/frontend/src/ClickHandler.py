@@ -65,28 +65,48 @@ class ClickHandler:
     def handle_button(self, mouse_pos):
         # Check if a button has been clicked on
         for button_text, rect in self.drawer.button_rects.items():
-            if rect.collidepoint(mouse_pos):
-                match button_text:
-                    case "Play":
-                        if self.game.shown_player.laying:
-                            self.game.shown_player.play_current_move()
-                    case "Clear":
+            if not rect.collidepoint(mouse_pos):
+                continue
+            match button_text:
+                case "Play":
+                    if self.game.shown_player.laying:
+                        self.game.shown_player.play_current_move()
+                case "Clear":
+                    self.game.shown_player.clear_current_move()
+                case "Swap":
+                    if self.game.shown_player.laying:
+                        if not self.game.swap_mode:
+                            self.game.swap_mode = True  # TODO: implement
+                        else:
+                            self.game.swap_mode = False
+                            self.game.shown_player.swap(
+                                self.game.shown_player.selected_tiles_to_swap
+                            )
+                case "Pass":
+                    if self.game.shown_player.laying:
+                        self.game.shown_player.skip()
+                case "Engine":
+                    if self.game.shown_player.laying:
+                        # Clear the players move
                         self.game.shown_player.clear_current_move()
-                    case "Swap":
-                        if self.game.shown_player.laying:
-                            if not self.game.swap_mode:
-                                self.game.swap_mode = True  # TODO: implement
-                            else:
-                                self.game.swap_mode = False
-                                self.game.shown_player.swap(
-                                    self.game.shown_player.selected_tiles_to_swap
-                                )
-                    case "Pass":
-                        if self.game.shown_player.laying:
-                            self.game.shown_player.skip()
-                    case "Engine":
-                        if self.game.shown_player.laying:
-                            for m in self.game.engine.find_possible_moves(
-                                self.game.shown_player.plank
-                            ):
-                                print(m, m.get_direction())
+
+                        # Find the possible moves
+                        possible_moves = self.game.engine.find_possible_moves(
+                            self.game.shown_player.plank
+                        )
+
+                        # Sort them on the number of points
+                        sorted_moves = sorted(
+                            possible_moves,
+                            key=lambda x: self.game.board.get_points_of_move(
+                                x
+                            ),
+                            reverse=True,
+                        )
+
+                        self.game.shown_player.possible_moves = sorted_moves
+
+                        if len(sorted_moves) > 0:
+                            self.game.shown_player.lay_move_on_board(
+                                sorted_moves[0]
+                            )

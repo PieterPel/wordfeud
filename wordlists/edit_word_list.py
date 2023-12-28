@@ -18,25 +18,25 @@ with open(
     realpath(join(dirname(__file__), "../wordlists/wordlist-edited.txt")), "w"
 ) as edited_wordlist:
     for word in word_list:
-        # Remove if it has has a capital letter, a digit, hyphen or space
+        # Remove if it has has a capital letter, a digit, hyphen, space or period
         # TODO: some words with hyphens are accepted without the hypen such as zee-egel -> zeeegel
         if any(
-            char.isupper() or char.isdigit() or char in ["-", " "]
+            char.isupper() or char.isdigit() or char in ["-", " ", "."]
             for char in word
         ):
             continue
 
         # TODO: abbreviations are still allowed
 
-        # Remove small words (add back manually) and words that are larger than the board
-        if len(word[:-1]) < 3 or len(word[:-1]) >= 15:
-            continue
-
         # Convert diecritics to normal letters by converting to unicode
         word = unidecode(word)
 
         # Remove '
         word = word.replace("'", "")
+
+        # Remove small words (add back manually) and words that are larger than the board
+        if len(word[:-1]) < 3 or len(word[:-1]) >= 15:
+            continue
 
         # Add word to edited word list
         edited_wordlist.write(word)

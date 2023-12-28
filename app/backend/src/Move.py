@@ -2,7 +2,7 @@ from collections import UserDict
 
 
 class Move(UserDict):
-    WIDTH = 15
+    LENGTH = 15
     HEIGHT = 15
 
     def get_direction(self) -> str:
@@ -21,7 +21,10 @@ class Move(UserDict):
     def get_turned_move(self):
         # transpose, then flip columns
         turned_move = Move(
-            {tile: (y, self.HEIGHT - 1 - x) for tile, (x, y) in self.items()}
+            {
+                tile: (self.LENGTH - 1 - y, self.HEIGHT - 1 - x)
+                for tile, (x, y) in self.items()
+            }
         )
 
         return turned_move

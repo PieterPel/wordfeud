@@ -31,13 +31,25 @@ class Plank:
             None if tile in tiles else self[i] for i, tile in enumerate(self)
         ]
 
+        # Count the number of blanks in tiles that have a tile
+        num_blank_tiles = sum(
+            tile.blank and tile.letter != " " for tile in tiles
+        )
+
+        # Remove the correct number of blanks
+        while num_blank_tiles > 0:
+            for i, tile in enumerate(self):
+                if tile is not None and tile.blank:
+                    self._tile_list[i] = None
+            num_blank_tiles -= 1
+
     def get_tile_with_letter(self, letter: str) -> Tile:
         # Check for the letter on the tiles
         for tile in self:
             if tile.letter == letter:
                 return tile
 
-        # Return a blank if nto found and avalable
+        # Return a blank if not found and avalable
         if " " in self.letters:
             return self.get_tile_with_letter(" ")
         else:

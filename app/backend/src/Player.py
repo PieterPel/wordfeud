@@ -32,6 +32,8 @@ class Player:
         self.selected_tile = None
         self.selected_tiles_to_swap = []
         self.current_move = Move()
+        self.possible_moves = []
+        self.possible_moves_index = 0
 
     @property
     def in_game(self):
@@ -149,6 +151,10 @@ class Player:
 
         print(f"Current move: {self.current_move}")
 
+    def lay_move_on_board(self, move):
+        self.current_move = move
+        self.plank.remove_tiles(list(move.keys()))
+
     def put_tile_on_plank(self, tile: Tile, index=None):
         self.plank.add_tile(tile, index)
         self.selected_tile = None
@@ -196,8 +202,6 @@ class Player:
         self.plank.remove_tiles(tiles)
         self.game.add_tiles_to_pile(tiles)
 
-        self.selected_tiles_to_swap = []
-
         self.end_turn()
 
     @only_on_turn
@@ -213,7 +217,10 @@ class Player:
         """
         Ends the player's turn.
         """
+        # Reset attributes
         self.laying = False
+        self.selected_tiles_to_swap = []
+        self.possible_moves = []
 
         # Draw new tiles
         self.draw_tiles()

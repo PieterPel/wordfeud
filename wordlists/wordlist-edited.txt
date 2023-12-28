@@ -3450,7 +3450,6 @@ aanvuring
 aanvuurde
 aanvuurden
 aanvuurt
-aanw.
 aanwaai
 aanwaaide
 aanwaaiden
@@ -6016,7 +6015,6 @@ adherentie
 adhesie
 adhortatief
 adhortatieven
-a.d.h.v.
 adi
 adiabatisch
 adiabatische
@@ -6498,7 +6496,6 @@ afasie
 afat
 afatisch
 afatische
-afb.
 afbad
 afbak
 afbakbrood
@@ -6798,6 +6795,7 @@ afbrengende
 afbrengt
 afbreuk
 afbreukrisico
+afbreukrisicos
 afbricoleren
 afbrokkel
 afbrokkelde
@@ -6820,7 +6818,6 @@ afchecken
 afchecke
 afcheckenden
 afcheckende
-afd.
 afdaal
 afdaalde
 afdaalden
@@ -10275,6 +10272,7 @@ afsprakenkader
 afsprakenlijn
 afsprakenlijst
 afsprakennota
+afsprakennotas
 afspreek
 afspreekplaats
 afspreekpunt
@@ -11583,7 +11581,6 @@ afwrijft
 afwrijven
 afwrijvingen
 afwringen
-afz.
 afzaag
 afzaagde
 afzaagden
@@ -12054,7 +12051,6 @@ agronomische
 agronoom
 agrosector
 agrotoerisme
-a.g.v.
 aha
 ahistorisch
 ahob
@@ -12071,7 +12067,6 @@ ahrimanisch
 ahrimanische
 ahs
 ahum
-a.h.w.
 aids
 aidsactivist
 aidsafdeling
@@ -12191,7 +12186,6 @@ ais
 ajakkes
 ajam
 ajasses
-ajb.
 ajour
 ajoursteek
 ajoursteken
@@ -13196,7 +13190,6 @@ alzijdig
 alzijdige
 alzijdigheid
 alzo
-a.m.
 ama
 amah
 amahs
@@ -13700,7 +13693,6 @@ amuzikaal
 amygdala
 amylose
 amyotrofie
-an.
 anaal
 anaalklier
 anabaptisme
@@ -13796,6 +13788,7 @@ analyserende
 analyseruimte
 analyses
 analyseschema
+analyseschemas
 analysesysteem
 analysetijd
 analysetoestel
@@ -15173,7 +15166,6 @@ approximatieve
 apps
 appte
 apr
-apr.
 apraxie
 april
 aprilgek
@@ -15438,6 +15430,7 @@ arbeidsregimes
 arbeidsrelatie
 arbeidsreserve
 arbeidsrisico
+arbeidsrisicos
 arbeidsritme
 arbeidsrooster
 arbeidsrust
@@ -15598,6 +15591,7 @@ archiefmappen
 archiefnummer
 archiefopslag
 archiefpagina
+archiefpaginas
 archiefproject
 archiefrecht
 archiefruimte
@@ -15883,6 +15877,7 @@ armoedenota
 armoedepeil
 armoederapport
 armoederisico
+armoederisicos
 armoedespiraal
 armoedetoeslag
 armoedetoets
@@ -15973,7 +15968,6 @@ aronskelken
 aroom
 arpeggio
 arpeggios
-arr.
 arrangeer
 arrangeerde
 arrangeerden
@@ -16171,6 +16165,7 @@ artsenbezoeken
 artsenbezoeker
 artsenblad
 artsendiploma
+artsendiplomas
 artsenechtpaar
 artseneed
 artsenexamen
@@ -16205,8 +16200,6 @@ artwork
 artworks
 arty
 aryl
-a.s.
-as
 asbak
 asbakje
 asbakjes
@@ -17051,7 +17044,6 @@ attribuut
 atv
 atypisch
 atypische
-a.u.b.
 aubade
 aubades
 aubergine
@@ -17175,7 +17167,6 @@ auditteam
 auditverslag
 auditverslagen
 aug
-aug.
 augiasstal
 augiasstallen
 augurenlach
@@ -17586,6 +17577,7 @@ autoprijzen
 autoproducent
 autoproductie
 autoprogramma
+autoprogrammas
 autopsie
 autopsies
 autoraam
@@ -21176,6 +21168,7 @@ basisruimte
 basissalaris
 basissaus
 basisscenario
+basisscenarios
 basisschaal
 basisschema
 basisscherm
@@ -21610,8 +21603,6 @@ bazuint
 bazuintje
 bazuintjes
 bbp
-bc.
-b.d.
 bdsm
 beaam
 beaamd
@@ -22564,6 +22555,7 @@ bedrijvenmarkt
 bedrijvenpanel
 bedrijvenpark
 bedrijvenpoli
+bedrijvenpolis
 bedrijvenzone
 bedrijvenzones
 bedrijver
@@ -25260,6 +25252,7 @@ beleidsaccent
 beleidsactie
 beleidsadvies
 beleidsagenda
+beleidsagendas
 beleidsakkoord
 beleidsambitie
 beleidsanalyse
@@ -27374,6 +27367,7 @@ beroepsrenners
 beroepsrijder
 beroepsrijders
 beroepsrisico
+beroepsrisicos
 beroepsscholen
 beroepsschool
 beroepsschrift
@@ -29362,7 +29356,6 @@ betrouwende
 betrouwend
 betrouwende
 betrouwt
-bett.
 bette
 betten
 bette
@@ -30789,7 +30782,6 @@ bewustmakende
 bewustmaking
 bewustwording
 bewustzijn
-bez.
 bezaagd
 bezaagde
 bezaai
@@ -31326,7 +31318,6 @@ bezwijmt
 bezwoer
 bezwoeren
 bezworen
-b.g.g.
 bhs
 biaisband
 biaislint
@@ -32365,7 +32356,6 @@ bijkruiden
 bijkwam
 bijkwamen
 bijl
-bijl.
 bijladen
 bijlag
 bijlage
@@ -32781,7 +32771,6 @@ bijtwond
 bijtwonde
 bijtwonden
 bijtwondje
-bijv.
 bijvak
 bijvakken
 bijvakstudent
@@ -36184,7 +36173,6 @@ blutsenden
 blutsende
 blutst
 blutste
-blz.
 bnp
 boa
 board
@@ -40063,6 +40051,7 @@ bouwproducten
 bouwproductie
 bouwprofiel
 bouwprogramma
+bouwprogrammas
 bouwproject
 bouwprojecten
 bouwpromotor
@@ -41108,6 +41097,7 @@ brandwacht
 brandwachten
 brandweer
 brandweerauto
+brandweerautos
 brandweeravond
 brandweerbeurs
 brandweerboot
@@ -42900,7 +42890,6 @@ bruuskerende
 bruut
 bruutheid
 bruutst
-bs
 btje
 btjes
 btw
@@ -44694,13 +44683,10 @@ buzzenden
 buzzende
 buzzer
 buzzers
-bv.
 bvba
 bvbas
-b.v.d.
 bvs
 bvtjes
-bw.
 bye
 byebye
 byes
@@ -44715,7 +44701,6 @@ byzantijnen
 byzantijns
 byzantijnse
 byzantinisme
-ca.
 cab
 caballero
 caban
@@ -45189,6 +45174,7 @@ campagnetaal
 campagneteam
 campagneteams
 campagnethema
+campagnethemas
 campagnetijd
 campagnetijden
 campagnevideo
@@ -45254,6 +45240,7 @@ campinkje
 campinkjes
 campionissimi
 campionissimo
+campionissimos
 campo
 camps
 campus
@@ -46718,6 +46705,7 @@ chatlijn
 chatnaam
 chatpagina
 chatprogramma
+chatprogrammas
 chatroom
 chatrooms
 chatruimte
@@ -48230,6 +48218,7 @@ cocktailjurken
 cocktailjurkje
 cocktailkaart
 cocktailparty
+cocktailpartys
 cocktails
 cocktailsaus
 cocktailshaker
@@ -48940,6 +48929,7 @@ commutatieve
 comorbiditeit
 compact
 compactcamera
+compactcameras
 compacte
 compacter
 compactere
@@ -49868,6 +49858,7 @@ conflictrecht
 conflictregel
 conflictregels
 conflictregio
+conflictregios
 conflictsfeer
 conflictstijl
 conflictstof
@@ -50997,6 +50988,7 @@ corona
 coronaal
 coronacijfers
 coronadiploma
+coronadiplomas
 coronadode
 coronadoden
 coronahufter
@@ -51464,7 +51456,6 @@ cox
 coxen
 coyote
 coyotes
-c.q.
 crack
 crackdealer
 crackdealers
@@ -51938,8 +51929,6 @@ cryptogrammen
 cryptologie
 cryptovaluta
 cryptovalutas
-c.s.
-cs
 csardas
 csardassen
 ctje
@@ -53776,6 +53765,7 @@ danspraktijk
 dansproductie
 dansproducties
 dansprogramma
+dansprogrammas
 dansproject
 dansrage
 dansrages
@@ -54256,8 +54246,6 @@ daze
 dazenden
 dazende
 dcs
-d.d.
-dd.
 deactiveerde
 deactiveert
 deactiveren
@@ -54486,7 +54474,6 @@ debuutseizoen
 debuutsingle
 debuutthriller
 dec
-dec.
 decaan
 decaanfunctie
 decade
@@ -54991,6 +54978,7 @@ deelproces
 deelprocessen
 deelproduct
 deelprogramma
+deelprogrammas
 deelproject
 deelprojecten
 deelprovincie
@@ -57033,8 +57021,6 @@ dezerzijds
 dezes
 dezulke
 dezulken
-dhr.
-d.i.
 dia
 diabaas
 diabeet
@@ -58118,6 +58104,7 @@ dieptrekken
 dieptreurig
 diepvries
 diepvriesbaby
+diepvriesbabys
 diepvriescel
 diepvriesdoos
 diepvriesdozen
@@ -59231,6 +59218,7 @@ discussiekader
 discussielijn
 discussielijst
 discussienota
+discussienotas
 discussiepanel
 discussiepunt
 discussieregel
@@ -59478,7 +59466,6 @@ dittografie
 ditzelfde
 diuretica
 diureticum
-div.
 diva
 divalifeest
 divalioptocht
@@ -59579,7 +59566,6 @@ djorkenden
 djorkende
 djorkte
 djs
-d.m.v.
 dobbe
 dobbel
 dobbelaar
@@ -62066,6 +62052,7 @@ doorklikke
 doorklikkenden
 doorklikkende
 doorklikratio
+doorklikratios
 doorklikt
 doorklinken
 doorklinke
@@ -63760,9 +63747,7 @@ dozijnen
 dozijntje
 dozijntjes
 dpi
-dr.
 dra
-dra.
 draad
 draadaanvoer
 draadachtig
@@ -64663,6 +64648,7 @@ driedelige
 driedeling
 driedeurs
 driedeursauto
+driedeursautos
 driedeursmodel
 driedik
 driedistel
@@ -65600,7 +65586,6 @@ droste
 drosten
 drostschap
 drozen
-drs.
 drug
 drugbaron
 drugbeleid
@@ -66229,8 +66214,6 @@ dry
 dryade
 dryaden
 drycleaning
-ds
-ds.
 dtje
 dtjes
 dtp
@@ -67683,7 +67666,6 @@ dwingers
 dwingt
 dwong
 dwongen
-d.w.z.
 dyade
 dynamica
 dynamiek
@@ -67733,7 +67715,6 @@ dyspepsie
 dysplasie
 dystopie
 dystrofie
-e.a.
 earl
 earlgreythee
 earmarken
@@ -67971,7 +67952,6 @@ eczeem
 eczema
 eczemateus
 eczemen
-e.d.
 edammer
 edammers
 edammertje
@@ -68068,7 +68048,6 @@ educatiever
 educt
 edwardiaans
 edwardiaanse
-e.e.a.
 eed
 eedaflegging
 eedafleggingen
@@ -70983,7 +70962,6 @@ enveloppengeld
 enveloppetje
 environment
 environments
-enz.
 enzoverder
 enzovoort
 enzovoorts
@@ -70993,7 +70971,6 @@ enzymatische
 enzymen
 enzymsysteem
 enzymtherapie
-e.o.
 eoceen
 eocene
 eoliet
@@ -71708,7 +71685,6 @@ erwtje
 erwtjes
 erytrocyt
 erytrocyten
-es
 esbattement
 esbattementen
 escadrille
@@ -71957,7 +71933,6 @@ etappezege
 etappezeges
 etatistisch
 etatistische
-etc.
 eten
 ete
 etenden
@@ -72305,9 +72280,7 @@ euveltje
 euveltjes
 euzie
 euzies
-e.v.
 eva
-e.v.a.
 evaatje
 evacuatie
 evacuatiebevel
@@ -72337,6 +72310,7 @@ evaluatiekader
 evaluatielijst
 evaluatiemodel
 evaluatienota
+evaluatienotas
 evaluatieopzet
 evaluatieplan
 evaluatieproef
@@ -72534,7 +72508,6 @@ evoqueren
 evoquere
 evoquerenden
 evoquerende
-evt.
 exacerbatie
 exact
 exacte
@@ -72752,7 +72725,6 @@ exciteren
 excitere
 exciterenden
 exciterende
-excl.
 exclamatie
 exclamaties
 exclave
@@ -73522,7 +73494,6 @@ ezeltje
 ezeltjes
 ezelwagen
 ezelwagens
-fa.
 faal
 faalangst
 faalangsten
@@ -73881,7 +73852,6 @@ falsifieerbaar
 falsifieerbare
 falsifieerde
 falsifieert
-fam.
 fameus
 fameust
 fameuze
@@ -74474,9 +74444,7 @@ fazen
 feature
 features
 feb
-feb.
 febr
-febr.
 februari
 februaridag
 februarimaand
@@ -75550,7 +75518,6 @@ fietszadels
 fietszoektocht
 fifties
 fiftyfifty
-fig.
 figaro
 figaros
 figgelen
@@ -76083,6 +76050,7 @@ filmproducers
 filmproductie
 filmproducties
 filmprogramma
+filmprogrammas
 filmproject
 filmprojecten
 filmprojectie
@@ -76499,6 +76467,7 @@ fitnessschoen
 fitnessscholen
 fitnessschool
 fitnessstudio
+fitnessstudios
 fitnesstoestel
 fitnesstracker
 fitnesstrainer
@@ -77474,6 +77443,7 @@ flutartikelen
 flutboekje
 flutboekjes
 flutprogramma
+flutprogrammas
 fluviatiel
 fluviatiele
 fluweel
@@ -78700,7 +78670,6 @@ foxtrotte
 foxtrotten
 foyer
 foyers
-fr.
 fra
 fraai
 fraaie
@@ -79576,7 +79545,6 @@ frutselen
 frutsels
 frutselt
 frutseltje
-fs
 ftaalzuur
 ftalaten
 fte
@@ -81662,7 +81630,6 @@ geavanceerder
 geavanceerdere
 geavondmaald
 geavontuurd
-geb.
 gebaad
 gebaald
 gebaand
@@ -86907,6 +86874,7 @@ geluidsstelsel
 geluidssterkte
 geluidsstudie
 geluidsstudio
+geluidsstudios
 geluidssysteem
 geluidstafel
 geluidsterkte
@@ -87071,7 +87039,6 @@ geluwe
 gelyncht
 gelynchte
 gem
-gem.
 gemaaid
 gemaaide
 gemaakt
@@ -90511,6 +90478,7 @@ gespreksruimte
 gespreksstof
 gesprekstafel
 gespreksthema
+gespreksthemas
 gesprekstijd
 gesprekstof
 gespreksvorm
@@ -90913,7 +90881,6 @@ gesyndiceerd
 gesyndikeerde
 gesyndikeerden
 get
-get.
 getaakt
 getaald
 getaand
@@ -93084,7 +93051,6 @@ gezworene
 gezworenen
 gezworven
 gft
-g.g.d.
 ggz
 ghazel
 ghazelen
@@ -93983,6 +93949,7 @@ glashandelaar
 glashard
 glasharde
 glasharmonica
+glasharmonicas
 glashelder
 glasheldere
 glasindustrie
@@ -97517,6 +97484,7 @@ groeirichting
 groeiritme
 groeiruimte
 groeiscenario
+groeiscenarios
 groeischema
 groeischeut
 groeischeuten
@@ -98852,7 +98820,6 @@ gruwzaamst
 gruwzame
 gruwzamer
 gruzelementen
-gs
 gsm
 gsmen
 gsmetje
@@ -109466,7 +109433,6 @@ hozenden
 hozende
 hozend
 hozende
-hs
 hsl
 hso
 hst
@@ -110376,6 +110342,7 @@ hulpposten
 hulppredikant
 hulpprediker
 hulpprogramma
+hulpprogrammas
 hulpproject
 hulpprojecten
 hulpregel
@@ -111200,7 +111167,6 @@ ibidem
 ibis
 ibissen
 ibuprofen
-i.c.
 ice
 icetea
 ichtyologen
@@ -111208,7 +111174,6 @@ ichtyologie
 ichtyoloog
 icing
 icings
-i.c.m.
 icon
 iconen
 iconenschilder
@@ -111327,7 +111292,6 @@ idylles
 idyllisch
 idyllische
 idyllischer
-i.e.
 iebel
 ieder
 iedere
@@ -111374,9 +111338,6 @@ ignoreren
 ignorere
 ignorerenden
 ignorerende
-i.h.a.
-i.h.b.
-i.i.g.
 ijdel
 ijdele
 ijdeler
@@ -111987,7 +111948,6 @@ illustrere
 illustrerenden
 illustrerende
 illustrerend
-i.m.
 image
 imagebuilding
 images
@@ -112618,6 +112578,7 @@ inbraakmelding
 inbraakmethode
 inbraakpoging
 inbraakrisico
+inbraakrisicos
 inbraakschade
 inbraakvrij
 inbraakvrije
@@ -112812,7 +112773,6 @@ inciviek
 incivieke
 incivieken
 incivisme
-incl.
 inclinatie
 inclinaties
 inclineerde
@@ -113746,7 +113706,6 @@ infuuspompjes
 infuussysteem
 infuustherapie
 infuusvoeding
-ing.
 inga
 ingaan
 ingaand
@@ -116973,6 +116932,7 @@ interieur
 interieurbeurs
 interieurbouw
 interieurfoto
+interieurfotos
 interieurkleur
 interieurkunst
 interieurs
@@ -117150,6 +117110,7 @@ internetporno
 internetprijs
 internetproef
 internetradio
+internetradios
 internetrecht
 internetruimte
 internetscherm
@@ -117183,6 +117144,7 @@ internettrol
 internetverbod
 internetversie
 internetvideo
+internetvideos
 internetvraag
 internetvragen
 internetvriend
@@ -118276,7 +118238,6 @@ inzwerende
 inzwolg
 inzwom
 inzwommen
-i.o.
 ion
 ionen
 ionenbron
@@ -118307,12 +118268,9 @@ ioniserende
 ionosfeer
 ionosferisch
 ionosferische
-i.o.v.
 ippon
 ippons
 ipso
-i.p.v.
-ir.
 irenisch
 irenische
 iridium
@@ -118399,7 +118357,6 @@ irriterenden
 irriterende
 irriterend
 irriterende
-is
 ischemie
 ischias
 ischiaszenuw
@@ -118469,7 +118426,6 @@ islamvariant
 islamverbod
 islamvraagstuk
 islamwereld
-i.s.m.
 isme
 ismen
 ismes
@@ -118594,11 +118550,9 @@ itererende
 itje
 itjes
 ito
-i.t.t.
 iva
 ivas
 ivf
-i.v.m.
 ivoor
 ivoordraaier
 ivoordraaiers
@@ -118615,7 +118569,6 @@ ivoren
 izabel
 izabelkleurig
 izabelkleurige
-i.z.g.st.
 jaag
 jaagde
 jaagden
@@ -118771,6 +118724,7 @@ jaarproductie
 jaarprognose
 jaarprognoses
 jaarprogramma
+jaarprogrammas
 jaarranglijst
 jaarrapport
 jaarrapportage
@@ -119212,7 +119166,6 @@ jamsession
 jamsessions
 jamt
 jan
-jan.
 janboel
 jandoedel
 jandoedels
@@ -119917,7 +119870,6 @@ jezidi
 jezidis
 jezusfreak
 jezusfreaks
-jhr.
 jicht
 jichtaanval
 jichtaanvallen
@@ -119963,8 +119915,6 @@ jiroveci
 jiujitsu
 jive
 jiven
-jkvr.
-jl.
 job
 jobaanbieding
 jobaanbod
@@ -120484,8 +120434,6 @@ joystick
 joysticks
 jozef
 jozefs
-jr.
-js
 jtje
 jtjes
 juan
@@ -120679,7 +120627,6 @@ jukken
 jukt
 jukte
 jul
-jul.
 juli
 juliaans
 juliaanse
@@ -120716,7 +120663,6 @@ jumpstylen
 jumpsuit
 jumpsuits
 jun
-jun.
 junctie
 juncties
 juncturen
@@ -123069,6 +123015,7 @@ kantoorachtig
 kantoorachtige
 kantooradres
 kantooragenda
+kantooragendas
 kantooralmanak
 kantoorarbeid
 kantoorartikel
@@ -123293,6 +123240,7 @@ kapitaalmassa
 kapitaalopbouw
 kapitaalpremie
 kapitaalratio
+kapitaalratios
 kapitaalrecht
 kapitaalrente
 kapitaalrenten
@@ -125926,6 +125874,7 @@ kernproces
 kernproef
 kernproeven
 kernprogramma
+kernprogrammas
 kernpunt
 kernpunten
 kernraket
@@ -128481,7 +128430,6 @@ kiwietje
 kiwis
 kiwiyoghurt
 kiyu
-k.k.
 klaaf
 klaag
 klaagbrief
@@ -129237,6 +129185,7 @@ klassementen
 klassen
 klassenactie
 klassenagenda
+klassenagendas
 klassenanalyse
 klassenavond
 klassenavonden
@@ -130227,6 +130176,7 @@ kleurenscalas
 kleurenscanner
 kleurenschaal
 kleurenschema
+kleurenschemas
 kleurenscherm
 kleurenschijf
 kleurenspel
@@ -134454,6 +134404,7 @@ kookpotten
 kookproces
 kookprocessen
 kookprogramma
+kookprogrammas
 kookpunt
 kookpunten
 kookrecept
@@ -136760,6 +136711,7 @@ krantennieuws
 krantenoorlog
 krantenoplage
 krantenpagina
+krantenpaginas
 krantenpapier
 krantenproject
 krantenreclame
@@ -136936,6 +136888,7 @@ kredietratings
 kredietreclame
 kredietrente
 kredietrisico
+kredietrisicos
 kredietruimte
 kredietschade
 kredietscore
@@ -138469,7 +138422,6 @@ krultangen
 krulziekte
 kryoliet
 krypton
-ks
 kst
 ktje
 ktjes
@@ -140191,6 +140143,7 @@ kwispeltjes
 kwisploeg
 kwisploegen
 kwisprogramma
+kwisprogrammas
 kwissen
 kwisse
 kwissenden
@@ -144667,6 +144620,7 @@ leraarsvak
 leraart
 leraren
 lerarenagenda
+lerarenagendas
 lerarenbeleid
 lerarenberoep
 lerarenbestand
@@ -145743,7 +145697,6 @@ libris
 librissen
 librium
 lic
-lic.
 licentiaat
 licentiate
 licentiaten
@@ -147899,6 +147852,7 @@ liveopnames
 liveoptreden
 liveoptredens
 liveprogramma
+liveprogrammas
 lives
 liveshow
 liveshows
@@ -149769,7 +149723,6 @@ lozingsverbod
 lozingswater
 lpg
 lps
-ls
 lsd
 lso
 lto
@@ -150350,6 +150303,7 @@ luimt
 luipaard
 luipaarden
 luipaardgekko
+luipaardgekkos
 luipaardvel
 luis
 luisde
@@ -153960,6 +153914,7 @@ masterclass
 masterclasses
 mastercursus
 masterdiploma
+masterdiplomas
 masteren
 mastere
 masterenden
@@ -154319,9 +154274,7 @@ mavoniveau
 mavos
 mavoscholen
 mavoschool
-m.a.w.
 max
-max.
 maxi
 maxim
 maxima
@@ -154451,8 +154404,6 @@ mbo
 mboer
 mboers
 mbos
-m.b.t.
-m.b.v.
 mea
 meander
 meanderde
@@ -156028,6 +155979,7 @@ meetproces
 meetprocessen
 meetproef
 meetprogramma
+meetprogrammas
 meetproject
 meetprotocol
 meetpunt
@@ -158352,7 +158304,6 @@ meurt
 meute
 meuten
 meutes
-mevr.
 mevrouw
 mevrouwde
 mevrouwen
@@ -158372,7 +158323,6 @@ mezzo
 mezzos
 mezzosopraan
 mezzosopranen
-m.i.
 mia
 miasma
 miasmas
@@ -159524,6 +159474,7 @@ miljardenfonds
 miljardenhulp
 miljardenmarkt
 miljardennota
+miljardennotas
 miljardenomzet
 miljardenorder
 miljardenplan
@@ -159546,6 +159497,7 @@ miljoenenjacht
 miljoenenleger
 miljoenenmarkt
 miljoenennota
+miljoenennotas
 miljoenenomzet
 miljoenenorder
 miljoenenpand
@@ -159652,7 +159604,6 @@ mimografie
 mimosa
 mimosas
 min
-min.
 mina
 minacht
 minachten
@@ -160715,7 +160666,6 @@ mitsgaders
 mitst
 mitste
 mitswa
-m.i.v.
 mix
 mixage
 mixdrank
@@ -160743,14 +160693,8 @@ mixtuur
 mkb
 mkber
 mkbers
-mld.
-mln.
-m.m.
 mmm
 mmsen
-m.m.v.
-m.n.
-mn
 mnemotechniek
 mnemotechnisch
 moa
@@ -162051,6 +161995,7 @@ mondgeur
 mondgevoel
 mondgezondheid
 mondharmonica
+mondharmonicas
 mondharp
 mondharpen
 mondheelkunde
@@ -162526,6 +162471,7 @@ moordcampagne
 moordcijfer
 moordcijfers
 moordcommando
+moordcommandos
 moordcomplot
 moorddadig
 moorddadige
@@ -163602,11 +163548,8 @@ mozetta
 mozettas
 mozzarella
 mps
-mr.
 mrt
-mrt.
 m/s
-ms
 msnen
 mts
 mucoviscidose
@@ -164354,7 +164297,6 @@ muurwerk
 muurwerken
 muurzijde
 muurzijden
-m.u.v.
 muzak
 muze
 muzelman
@@ -164725,7 +164667,6 @@ muzikantesk
 muzikanteske
 muzisch
 muzische
-mw.
 mycelium
 mycologen
 mycologie
@@ -166632,7 +166573,6 @@ nauwsluitende
 nauwst
 nauwste
 nauwte
-n.a.v.
 navel
 navelband
 navelbandje
@@ -168967,8 +168907,6 @@ nixe
 nixen
 njet
 njonja
-nl.
-no.
 noachitisch
 noachitische
 nobel
@@ -169281,6 +169219,7 @@ noodpompen
 noodprocedure
 noodprocedures
 noodprogramma
+noodprogrammas
 noodradio
 noodrantsoen
 noodrantsoenen
@@ -169715,7 +169654,6 @@ notitieboeken
 notitieboekje
 notitieboekjes
 notities
-n.o.t.k.
 notoir
 notoire
 notulant
@@ -169741,7 +169679,6 @@ nouveau
 nouveaux
 nouvelle
 nov
-nov.
 nova
 novae
 novas
@@ -169783,9 +169720,6 @@ novum
 nozem
 nozempje
 nozems
-nr.
-nrs.
-ns
 nuance
 nuanceer
 nuanceerde
@@ -169989,9 +169923,7 @@ nuttigs
 nuttigst
 nuttigste
 nuttigt
-n.v.d.r.
 nvs
-n.v.t.
 nylon
 nylondraad
 nylondraadje
@@ -170008,7 +169940,6 @@ nymfomaan
 nymfomane
 nymfomanen
 nymfomanie
-o.a.
 oase
 oasen
 oases
@@ -170185,7 +170116,6 @@ obstrueert
 obstrueren
 obus
 obussen
-o.b.v.
 ocarina
 ocarinas
 occasie
@@ -170502,6 +170432,7 @@ oefenruimte
 oefenruimten
 oefenruimtes
 oefenscenario
+oefenscenarios
 oefenschema
 oefenschemas
 oefenscholen
@@ -170954,8 +170885,6 @@ ohmmeter
 ohms
 ohmse
 oho
-o.i.
-o.i.d.
 oio
 oioplaats
 oioplaatsen
@@ -171007,7 +170936,6 @@ okselzweet
 okshoofd
 okshoofden
 okt
-okt.
 oktober
 oktoberdag
 oktoberdagen
@@ -171414,7 +171342,6 @@ olmen
 olmenbos
 olmenbossen
 olmpje
-o.l.v.
 olympiade
 olympiaden
 olympiades
@@ -171422,7 +171349,6 @@ olympiajol
 olympiajollen
 olympisch
 olympische
-o.m.
 oma
 omaatje
 omaatjes
@@ -174885,7 +174811,6 @@ onfrisser
 onfrist
 onfunctioneel
 onfunctionele
-ong.
 ongaar
 ongaarne
 ongans
@@ -175938,7 +175863,6 @@ onordelijk
 onordelijke
 onorthodox
 onorthodoxe
-onov.
 onoverbrugbaar
 onoverbrugbare
 onoverdacht
@@ -178016,6 +177940,7 @@ ontwerpstijlen
 ontwerpstudie
 ontwerpstudies
 ontwerpstudio
+ontwerpstudios
 ontwerpt
 ontwerptafel
 ontwerptalent
@@ -179302,6 +179227,7 @@ oorlogstijden
 oorlogstoneel
 oorlogstonelen
 oorlogstrauma
+oorlogstraumas
 oorlogstrom
 oorlogstuig
 oorlogsverhaal
@@ -180497,6 +180423,7 @@ operakoor
 operakoren
 operakostuums
 operalibretto
+operalibrettos
 operamuziek
 operand
 operanden
@@ -184584,7 +184511,6 @@ orwelliaans
 orwelliaanse
 oryx
 oryxen
-os
 oscillatie
 oscillaties
 oscillator
@@ -184674,7 +184600,6 @@ otoliet
 otoscoop
 otoscopen
 ots
-o.t.t.
 otter
 otterbont
 otterde
@@ -185855,6 +185780,7 @@ overlegniveau
 overlegorgaan
 overlegorganen
 overlegpagina
+overlegpaginas
 overlegpartner
 overlegproces
 overlegronde
@@ -186901,7 +186827,6 @@ overzwemt
 overzwom
 overzwommen
 oviparie
-o.v.t.
 ovulatie
 ovulaties
 ovuleerde
@@ -186909,7 +186834,6 @@ ovuleren
 ovulere
 ovulerenden
 ovulerende
-o.v.v.
 owngoal
 owngoals
 oxaalzuur
@@ -186961,7 +186885,6 @@ ozonsfeer
 ozonverlies
 ozonvorming
 ozonwater
-p.a.
 paadje
 paadjes
 paai
@@ -187524,7 +187447,6 @@ pafte
 paften
 pafzak
 pafzakken
-pag.
 pagaai
 pagaaide
 pagaaiden
@@ -194620,7 +194542,6 @@ plisseert
 plisseetje
 plisseren
 plistoceen
-plm.
 ploeg
 ploegarts
 ploegartsen
@@ -195062,8 +194983,6 @@ pluvier
 pluvieren
 pluviometer
 pluviometers
-plv.
-p.m.
 pneumatiek
 pneumatisch
 pneumatische
@@ -195073,7 +194992,6 @@ pneumokokken
 pneumonie
 pneumothorax
 pneumothoraxen
-p.o.
 poch
 pocheer
 pocheerde
@@ -196938,6 +196856,7 @@ postcodecheck
 postcodegebied
 postcodenummer
 postcoderegio
+postcoderegios
 postcodes
 postcodetabel
 postcoitumtest
@@ -197410,7 +197329,6 @@ pozen
 poze
 pozenden
 pozende
-p.p.
 ppm
 praai
 praaide
@@ -199354,6 +199272,7 @@ productnummer
 productnummers
 productontwerp
 productpagina
+productpaginas
 productpakket
 productprijs
 productprijzen
@@ -199393,6 +199312,7 @@ proefboring
 proefboringen
 proefbuis
 proefbuisbaby
+proefbuisbabys
 proefbuisje
 proefbuisjes
 proefcentra
@@ -199633,7 +199553,6 @@ proeverij
 proeverijen
 proevers
 prof
-prof.
 profaan
 profaanst
 profafdeling
@@ -199719,6 +199638,7 @@ profielkeuze
 profiellijst
 profiellijsten
 profielpagina
+profielpaginas
 profielplaat
 profielschets
 profielsteen
@@ -200728,7 +200648,6 @@ pruttelige
 pruttelt
 prutterig
 prutterige
-ps
 psalm
 psalmberijming
 psalmboek
@@ -201610,7 +201529,6 @@ puzzelwerk
 puzzelwerkje
 puzzelwerkjes
 pvc
-p.w.
 pygmee
 pyjama
 pyjamaatje
@@ -201655,9 +201573,6 @@ pythische
 python
 pythons
 qat
-q.e.d.
-q.q.
-qs
 qtje
 qtjes
 qua
@@ -201767,6 +201682,7 @@ quizmasters
 quizploeg
 quizploegen
 quizprogramma
+quizprogrammas
 quizshow
 quizshows
 quizt
@@ -202018,6 +201934,7 @@ raamposten
 raamprofiel
 raamprofielen
 raamprogramma
+raamprogrammas
 raamprostituee
 raamsponning
 raamsponningen
@@ -203624,6 +203541,7 @@ reactiemotoren
 reactiemotors
 reactienota
 reactiepagina
+reactiepaginas
 reactiepatroon
 reactieproduct
 reactieruimte
@@ -203910,6 +203828,7 @@ rechtbank
 rechtbankdrama
 rechtbanken
 rechtbankjury
+rechtbankjurys
 rechtbankstuk
 rechtbreien
 rechtbreie
@@ -203971,6 +203890,7 @@ rechteroog
 rechteroor
 rechteroren
 rechterpagina
+rechterpaginas
 rechterpols
 rechterpolsen
 rechterportier
@@ -204674,7 +204594,6 @@ recyclerende
 recyclet
 recycling
 red
-red.
 redacteur
 redacteuren
 redacteurs
@@ -205531,6 +205450,7 @@ regeringsleger
 regeringslid
 regeringsmacht
 regeringsnota
+regeringsnotas
 regeringsplan
 regeringsploeg
 regeringspost
@@ -206036,6 +205956,7 @@ reisplezier
 reispolis
 reispolissen
 reisprogramma
+reisprogrammas
 reisreportage
 reisreportages
 reisroute
@@ -207360,7 +207281,6 @@ resort
 resorts
 resource
 resources
-resp.
 respect
 respectabel
 respectabele
@@ -212373,7 +212293,6 @@ rozijnenbroden
 rozijnenbrood
 rozijntje
 rozijntjes
-rs
 rubato
 rubber
 rubberachtig
@@ -214375,6 +214294,7 @@ satellietclub
 satellietclubs
 satellieten
 satellietfoto
+satellietfotos
 satellietgroep
 satellietjes
 satellietkaart
@@ -215597,6 +215517,7 @@ schedels
 schedeltje
 schedeltjes
 schedeltrauma
+schedeltraumas
 schedelvorm
 schedelvormen
 scheden
@@ -217413,6 +217334,7 @@ schooldecanen
 schooldeur
 schooldeuren
 schooldiploma
+schooldiplomas
 schooldirectie
 schooldistrict
 schooldokter
@@ -220260,7 +220182,6 @@ sentimentele
 sentimenteler
 sentimenten
 sep
-sep.
 separaat
 separate
 separaten
@@ -220299,7 +220220,6 @@ sepotbeleid
 sepots
 sepsis
 sept
-sept.
 september
 septemberavond
 septemberdag
@@ -220892,6 +220812,7 @@ showorkesten
 showproces
 showprocessen
 showprogramma
+showprogrammas
 showroom
 showroommodel
 showrooms
@@ -221553,7 +221474,6 @@ sixpacks
 sixties
 sixtijns
 sixtijnse
-s.j.
 sjaak
 sjaal
 sjaals
@@ -226385,6 +226305,7 @@ soloplaten
 solopraktijk
 solopraktijken
 soloprogramma
+soloprogrammas
 soloproject
 soloprojecten
 solorivier
@@ -226856,6 +226777,7 @@ spaardeel
 spaardelen
 spaarden
 spaardeposito
+spaardepositos
 spaarder
 spaarders
 spaardersmarkt
@@ -227447,6 +227369,7 @@ speelgenoten
 speelgoed
 speelgoedaap
 speelgoedauto
+speelgoedautos
 speelgoedbeer
 speelgoedbeest
 speelgoedberen
@@ -227958,6 +227881,7 @@ spelpatroon
 spelpeil
 spelplezier
 spelprogramma
+spelprogrammas
 spelpunt
 spelregel
 spelregels
@@ -230454,8 +230378,6 @@ squatten
 squaw
 squaws
 squirten
-sr.
-ss
 sta
 staaf
 staafantenne
@@ -233514,6 +233436,7 @@ sterftegraad
 sterftekans
 sterftekansen
 sterfterisico
+sterfterisicos
 sterftetabel
 sterftetafel
 sterftetafels
@@ -237288,6 +237211,7 @@ structuurfonds
 structuurloos
 structuurloze
 structuurnota
+structuurnotas
 structuurplan
 structuurverf
 structuurvisie
@@ -239238,6 +239162,7 @@ surpluswinst
 surpluswinsten
 surprise
 surpriseparty
+surprisepartys
 surprises
 surrealisme
 surrealist
@@ -239304,7 +239229,6 @@ susten
 suzannaboef
 suzerein
 suzereiniteit
-s.v.p.
 swa
 swaffelen
 swaffele
@@ -239635,6 +239559,7 @@ systeempje
 systeempjes
 systeemplafond
 systeemrisico
+systeemrisicos
 systeemschijf
 systeemstart
 systeemstatus
@@ -239934,6 +239859,7 @@ taalproductie
 taalproef
 taalprof
 taalprogramma
+taalprogrammas
 taalproject
 taalprojecten
 taalpurisme
@@ -241376,7 +241302,6 @@ taurine
 tautologie
 tautologisch
 tautologische
-t.a.v.
 taveerne
 taveernen
 taveernes
@@ -241488,7 +241413,6 @@ tbc
 tbs
 tbser
 tbsers
-t.b.v.
 tea
 teacher
 teachers
@@ -242928,7 +242852,6 @@ telwerken
 telwoord
 telwoorden
 tem
-t.e.m.
 tembaar
 tembare
 temde
@@ -244565,6 +244488,7 @@ testprocedures
 testproces
 testprocessen
 testprogramma
+testprogrammas
 testproject
 testprojecten
 testprotocol
@@ -244797,7 +244721,6 @@ tezamen
 tezelfdertijd
 tezen
 tgv
-t.g.v.
 tgvs
 thaiboksen
 thaibokse
@@ -245247,7 +245170,6 @@ thrillerdebuut
 thrillergenre
 thrillerlezer
 thrillers
-t.h.t.
 thuis
 thuisaanhang
 thuisaccu
@@ -245503,7 +245425,6 @@ thuiszorg
 thuiszorgers
 thuja
 thujas
-t.h.v.
 thymine
 thymus
 thymusklier
@@ -246549,7 +246470,6 @@ tjotter
 tjotters
 t/m
 tmesis
-t.n.v.
 toast
 toasten
 toaste
@@ -247405,9 +247325,11 @@ toeristenhotel
 toeristenkaart
 toeristenmarkt
 toeristenmenu
+toeristenmenus
 toeristenoord
 toeristenstad
 toeristentaxi
+toeristentaxis
 toeristentrein
 toeristenval
 toeristenvisa
@@ -249448,7 +249370,6 @@ touwtrekkerij
 touwtrekkers
 touwtrekt
 touwwerk
-t.o.v.
 tovenaar
 tovenaars
 tovenaarster
@@ -250684,6 +250605,7 @@ trekhaak
 trekhaken
 trekhand
 trekharmonica
+trekharmonicas
 trekhond
 trekhonden
 trekje
@@ -251861,7 +251783,6 @@ truwelen
 try
 trypsine
 tryptofaan
-ts
 tsaar
 tsaren
 tsarenfamilie
@@ -252830,7 +252751,6 @@ tvloze
 tvs
 tvtje
 tvtjes
-t.w.
 twaalf
 twaalfcilinder
 twaalfdaags
@@ -252916,6 +252836,7 @@ tweederangsrol
 tweedes
 tweedeurs
 tweedeursauto
+tweedeursautos
 tweedhoed
 tweedjas
 tweedjasje
@@ -253242,7 +253163,6 @@ twoseater
 twoseaters
 twoseatertje
 twostep
-t.w.v.
 tycoon
 tycoons
 tyfeus
@@ -253341,7 +253261,6 @@ tyrannosaurus
 tyrolienne
 tyroliennes
 tzatziki
-t.z.t.
 ubs
 uds
 ufo
@@ -257358,6 +257277,7 @@ uitzendmarkt
 uitzendperiode
 uitzendrecht
 uitzendschema
+uitzendschemas
 uitzendsector
 uitzendstraat
 uitzendt
@@ -257913,7 +257833,6 @@ uroscopie
 ursuline
 ursulinen
 urt
-us
 usance
 usances
 usantie
@@ -258472,6 +258391,7 @@ vakantieplek
 vakantieplekje
 vakantiepret
 vakantieregio
+vakantieregios
 vakantiereis
 vakantiereisje
 vakantiereizen
@@ -258490,6 +258410,7 @@ vakantietijden
 vakantietrip
 vakantieverlof
 vakantievilla
+vakantievillas
 vakantievlucht
 vakantievriend
 vakantiewas
@@ -259722,7 +259643,6 @@ vazalstaat
 vazalstaten
 vazen
 vbo
-v.d.
 vecht
 vechtachtige
 vechtarend
@@ -262586,7 +262506,6 @@ verfwerken
 verfwinkel
 verfwinkels
 verg
-verg.
 verga
 vergaan
 vergaand
@@ -268298,6 +268217,7 @@ vervoersplicht
 vervoersprijs
 vervoersrecht
 vervoersregio
+vervoersregios
 vervoerssector
 vervoersstroom
 vervoerstak
@@ -268368,6 +268288,7 @@ vervolgorder
 vervolgorders
 vervolgoverleg
 vervolgpagina
+vervolgpaginas
 vervolgproject
 vervolgrapport
 vervolgreeks
@@ -270016,8 +269937,6 @@ vezelvlies
 vezelvliezen
 vezelwortels
 vezen
-vgl.
-v.h.
 via
 viaduct
 viaducten
@@ -270257,6 +270176,7 @@ vierderlei
 vierdes
 vierdeurs
 vierdeursauto
+vierdeursautos
 vierdraads
 vierdubbel
 vierdubbele
@@ -270499,6 +270419,7 @@ vijfden
 vijfdes
 vijfdeurs
 vijfdeursauto
+vijfdeursautos
 vijfduizend
 vijfduizendste
 vijfendertig
@@ -272530,7 +272451,6 @@ vlindertuin
 vlindertuinen
 vlizotrap
 vlizotrappen
-v.l.n.r.
 vlo
 vlocht
 vlochten
@@ -272931,8 +272851,6 @@ vlugzout
 vmbo
 vmboer
 vmboers
-vnl.
-vnw.
 vocaal
 vocabulaire
 vocabulaires
@@ -275461,6 +275379,7 @@ voorjaarsdag
 voorjaarsjacht
 voorjaarsmode
 voorjaarsnota
+voorjaarsnotas
 voorjaarsreces
 voorjaarstop
 voorjaarstrek
@@ -275828,6 +275747,7 @@ voorproefjes
 voorproeft
 voorproeven
 voorprogramma
+voorprogrammas
 voorpublicatie
 voorpubliceert
 voorpubliceren
@@ -275934,6 +275854,7 @@ voorschotelt
 voorschoten
 voorschotje
 voorschotnota
+voorschotnotas
 voorschotrente
 voorschotten
 voorschouw
@@ -276771,7 +276692,6 @@ voorwoord
 voorwoorden
 voorworp
 voorworpen
-voorz.
 voorzaal
 voorzaat
 voorzag
@@ -277772,7 +277692,6 @@ vriezende
 vriezer
 vriezers
 vrij
-vrij.
 vrijaf
 vrijage
 vrijages
@@ -278124,7 +278043,6 @@ vrille
 vrilles
 vrind
 vrinden
-v.r.n.l.
 vroed
 vroede
 vroeder
@@ -278337,6 +278255,7 @@ vrouwenopvang
 vrouwenorkest
 vrouwenpaar
 vrouwenpagina
+vrouwenpaginas
 vrouwenpartij
 vrouwenpeloton
 vrouwenploeg
@@ -278470,14 +278389,11 @@ vruchtzakje
 vruchtzakjes
 vruchtzakken
 vruchtzetting
-vs
-vs.
 vso
 vsv
 vsver
 vtje
 vtjes
-v.t.t.
 vucht
 vues
 vuig
@@ -278950,10 +278866,7 @@ vuurzwam
 vuurzwammetje
 vuutje
 vuvuzela
-v.v.
 vve
-v.v.t.
-v.w.b.
 vwo
 vwoer
 vwoers
@@ -281423,6 +281336,7 @@ watersteen
 waterstof
 waterstofatoom
 waterstofauto
+waterstofautos
 waterstofbom
 waterstofbrug
 waterstofbus
@@ -283827,6 +283741,7 @@ wegwerkten
 wegwerp
 wegwerpartikel
 wegwerpcamera
+wegwerpcameras
 wegwerpcultuur
 wegwerpen
 wegwerpe
@@ -284336,6 +284251,7 @@ welstandige
 welstandseisen
 welstandsgrens
 welstandsnota
+welstandsnotas
 welstandstoets
 welstandsvrij
 welstandsvrije
@@ -285215,6 +285131,7 @@ werkproces
 werkprocessen
 werkprogram
 werkprogramma
+werkprogrammas
 werkprograms
 werkproject
 werkprojecten
@@ -286359,6 +286276,7 @@ wijkpost
 wijkposten
 wijkpredikant
 wijkprogramma
+wijkprogrammas
 wijkraad
 wijkraadsleden
 wijkraadslid
@@ -288049,7 +287967,6 @@ witwerkers
 witz
 witzen
 witzijden
-w.o.
 wobben
 wodanseik
 wodka
@@ -288756,6 +288673,7 @@ woonproblemen
 woonproduct
 woonproducten
 woonprogramma
+woonprogrammas
 woonproject
 woonprojecten
 woonprotest
@@ -289423,7 +289341,6 @@ wrongetje
 wrongetjes
 wrongstuk
 wrongstukken
-ws
 wtje
 wtjes
 wuft
@@ -289501,8 +289418,6 @@ wurmende
 wurmpje
 wurmpjes
 wurmt
-w.v.t.t.k.
-ww.
 www
 wyandotte
 wybertje
@@ -289637,7 +289552,6 @@ youtubevideos
 ypresien
 ypsilon
 ypsilons
-ys
 ytje
 ytjes
 yttrium
@@ -290995,6 +290909,7 @@ zeehelden
 zeehond
 zeehonden
 zeehondenbaby
+zeehondenbabys
 zeehondenbont
 zeehondenjacht
 zeehondenjager
@@ -292531,10 +292446,6 @@ zeverende
 zeverlap
 zeverlappen
 zevert
-z.g.
-z.g.a.n.
-zgn.
-z.i.
 zich
 zicht
 zichtafstand
@@ -293597,7 +293508,6 @@ zmlk
 zmok
 zmper
 zmpers
-zn
 zoab
 zoal
 zoals
@@ -293708,6 +293618,7 @@ zoekprocessen
 zoekprofiel
 zoekprofielen
 zoekprogramma
+zoekprogrammas
 zoekraakt
 zoekraken
 zoekrake
@@ -294858,6 +294769,7 @@ zorgproduct
 zorgproducten
 zorgproductie
 zorgprogramma
+zorgprogrammas
 zorgpunt
 zorgpunten
 zorgregeling
@@ -295103,11 +295015,8 @@ zoverre
 zowaar
 zowat
 zowel
-z.o.z.
 zozeer
 zozo
-zs
-z.s.m.
 ztje
 ztjes
 zucht

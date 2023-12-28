@@ -17,6 +17,7 @@ print(os.getcwd())
 sys.path.append(f"{os.getcwd()}/app/frontend/src")
 from GameDrawer import GameDrawer
 from ClickHandler import ClickHandler
+from ScrollHandler import ScrollHandler
 
 
 class Game:
@@ -53,6 +54,7 @@ class Game:
 
         drawer = GameDrawer(self)
         click_handler = ClickHandler(self, drawer)
+        scroll_handler = ScrollHandler(self)
 
         # Main PyGame loop
         running = True  # TODO: change to correct player
@@ -64,6 +66,8 @@ class Game:
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     mouse_pos = pygame.mouse.get_pos()
                     click_handler.handle_click(mouse_pos)
+                elif event.type == pygame.MOUSEWHEEL:
+                    scroll_handler.handle_scroll(event.x, event.y)
 
                 drawer.draw_all(self.shown_player)
 
