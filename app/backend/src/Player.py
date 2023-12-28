@@ -30,6 +30,7 @@ class Player:
         self.laying = False
 
         self.selected_tile = None
+        self.selected_tiles_to_swap = []
         self.current_move = Move()
 
     @property
@@ -78,6 +79,15 @@ class Player:
         Selects a tile for the current move.
         """
 
+        # Check wether the game is in swap mode
+        if self.game.swap_mode:
+            if tile in self.plank:
+                if tile not in self.selected_tiles_to_swap:
+                    self.selected_tiles_to_swap.append(tile)
+                else:
+                    self.selected_tiles_to_swap.remove(tile)
+            return
+
         # Do something with currently selected tile, swap?
         print(f"Trying to select {tile}")
 
@@ -91,6 +101,10 @@ class Player:
 
             if self.selected_tile is not None:
                 self.plank.add_tile(self.selected_tile)
+
+        # Reset the tile if it is a blank
+        if tile.blank:
+            tile.letter = " "
 
         print(f"selecting: {str(tile)}")
         self.selected_tile = tile
@@ -116,10 +130,22 @@ class Player:
                 if value == coordinates
             )
             del self.current_move[current_tile]
+
+            # Reset the tile if the tile is a blank
+            if current_tile.blank:
+                current_tile.letter = " "
+
             self.selected_tile = current_tile
         else:
             self.selected_tile = None
+
+        # If the tile is a blank ask for user input
+        if tile.blank:
+            tile.letter = input("What letter should the blank be?").upper()
+
         self.current_move[tile] = coordinates
+
+        # Tile currently selected can be blank or tile selecting can be blank
 
         print(f"Current move: {self.current_move}")
 
@@ -156,6 +182,10 @@ class Player:
         """
         Swaps the specified tiles from the player's plank with new tiles from the game pile.
         """
+
+        # Cancel if there are no tiles selected
+        if len(tiles) == 0:
+            self.begin_turn()
 
         # Not allowed if fewer than the plank length in the pile
         if len(self.game.pile) <= self.plank.LENGTH:

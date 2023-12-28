@@ -43,7 +43,9 @@ def get_word_set():
         f"{os.getcwd()}/wordlists/wordlist-edited.txt", "r"
     ) as word_list:
         for word in word_list:
-            word_set.add(word[:-1].upper())  # Remove "\n"
+            word_set.add(
+                word[:-1].upper()
+            )  # Remove "\n" and put in upper case
     return word_set
 
 

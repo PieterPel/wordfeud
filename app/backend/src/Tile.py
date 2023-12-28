@@ -5,10 +5,14 @@ class Tile:
     def __init__(self, letter, points):
         self.letter = letter
         self.points = points
+        if self.letter == " ":
+            self.blank = True
+        else:
+            self.blank = False
 
     def __repr__(self):
-        if self.letter == " ":
-            return " "
+        if self.blank:
+            return self.letter
         else:
             return f"{self.letter}{get_sub(self.points)}"
 

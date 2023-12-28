@@ -318,9 +318,8 @@ class Engine:
         return legal_words
 
     # TODO: Can probably be made prettier/more efficient
-    @staticmethod
     def turn_words_into_moves(
-        words, anchor, plank, left_extension, fixed: bool
+        self, words, anchor, plank, left_extension, fixed: bool
     ) -> list:
         moves = []
         x, y = anchor
@@ -328,12 +327,19 @@ class Engine:
         # Fixed left extension => all tiles on the plank are available to form the word
         if fixed:
             for word in words:
+                if len(word) < 2:
+                    continue
+
                 tiles = copy.copy(plank.tile_list)
 
                 move = Move()
                 dx = 0
                 part_to_lay_down = word[len(left_extension) :]
                 for letter in part_to_lay_down:
+                    if self.board[(x + dx, y)].filled:
+                        dx += 1
+                        continue
+
                     tile = grab_letter_from_tile_list(tiles, letter)
                     move[tile] = (x + dx, y)
                     dx += 1
@@ -343,11 +349,18 @@ class Engine:
         # Else first need to lay down the left extension
         else:
             for word in words:
+                if len(word) < 2:
+                    continue
+
                 tiles = copy.copy(plank.tile_list)
                 move = Move()
                 dx = -len(left_extension)
 
                 for letter in word:
+                    if self.board[(x + dx, y)].filled:
+                        dx += 1
+                        continue
+
                     tile = grab_letter_from_tile_list(tiles, letter)
                     move[tile] = (x + dx, y)
                     dx += 1

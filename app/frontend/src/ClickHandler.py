@@ -29,7 +29,6 @@ class ClickHandler:
                 self.game.shown_player.lay_tile_on_board(
                     self.game.shown_player.selected_tile, coordinates
                 )
-                print("Think there is an empty cell")
 
     def handle_tile(self, mouse_pos):
         # Check if a tile has been clicked on
@@ -69,16 +68,25 @@ class ClickHandler:
             if rect.collidepoint(mouse_pos):
                 match button_text:
                     case "Play":
-                        self.game.shown_player.play_current_move()
+                        if self.game.shown_player.laying:
+                            self.game.shown_player.play_current_move()
                     case "Clear":
                         self.game.shown_player.clear_current_move()
                     case "Swap":
-                        pass  # TODO: implement
+                        if self.game.shown_player.laying:
+                            if not self.game.swap_mode:
+                                self.game.swap_mode = True  # TODO: implement
+                            else:
+                                self.game.swap_mode = False
+                                self.game.shown_player.swap(
+                                    self.game.shown_player.selected_tiles_to_swap
+                                )
                     case "Pass":
-                        self.game.shown_player.skip()
+                        if self.game.shown_player.laying:
+                            self.game.shown_player.skip()
                     case "Engine":
-                        for m in self.game.engine.find_possible_moves(
-                            self.game.shown_player.plank
-                        ):
-                            print(m)
-                            print(type(m))
+                        if self.game.shown_player.laying:
+                            for m in self.game.engine.find_possible_moves(
+                                self.game.shown_player.plank
+                            ):
+                                print(m, m.get_direction())

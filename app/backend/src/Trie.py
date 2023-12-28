@@ -100,6 +100,20 @@ class Trie(object):
         # Sort the results in reverse order and return
         return sorted(self.output, key=lambda x: x[1], reverse=True)
 
+    def includes(self, x):
+        node = self.root
+
+        # Check if the prefixes are in the trie
+        for char in x:
+            if char in node.children:
+                node = node.children[char]
+            else:
+                # cannot find the prefix, return empty list
+                return False
+
+        # Check if the word can be an end
+        return node.is_end
+
     def get_children(self, prefix: str) -> set:
         node = self.root
 

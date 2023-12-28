@@ -1,9 +1,17 @@
 from Board import Board
 from Trie import Trie
+import timeit
 
 board = Board()
-trie = Trie(word_set=board.WORD_SET)
+set = board.WORD_SET
+trie = Trie(set)
 
-letters = ["A", "B", "C", "D", "E", "F", "G"]
+letters = ["A", "B", "C", "D", "E", " ", " "]
 
-print(trie.generate_prefix_combinations(7, letters))
+string_to_compare = "BAD"
+length = 7
+
+execution_time = timeit.timeit(
+    lambda: trie.generate_prefix_combinations(length, letters), number=1
+)
+print(f"Execution time: {execution_time} seconds")

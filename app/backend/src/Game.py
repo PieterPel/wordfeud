@@ -36,6 +36,7 @@ class Game:
         self.round_number = 0
         self.consecutive_passes = 0
         self.shown_player = self.players[0]
+        self.swap_mode = False
 
     def begin_game(self):
         """
@@ -44,7 +45,6 @@ class Game:
         self.add_players_to_game()
         self.distribute_tiles()
         self.new_round()
-        turned = False
 
         print("Beginning game!")
 

@@ -20,7 +20,7 @@ class LegalityChecker:
 
         new_words = self.get_new_words(move)
         print(f"Formed words: {new_words}")
-        if new_words.issubset(self.WORD_SET):
+        if new_words.issubset(self.WORD_SET) and len(new_words) > 0:
             return True
         else:
             print(f"{new_words - self.WORD_SET} is/aren't allowed")
