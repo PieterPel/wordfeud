@@ -23,9 +23,14 @@ class PlankDrawer:
 
             # If there is a tile at that spot, draw the tile
             if tile is not None:
+                if tile in player.selected_tiles_to_swap:
+                    tile_color = tile.ALT_COLOR
+                else:
+                    tile_color = tile.BASE_COLOR
+
                 pygame.draw.rect(
                     self.game_drawer.screen,
-                    tile.BASE_COLOR,
+                    tile_color,
                     rect,
                 )
                 pygame.draw.rect(

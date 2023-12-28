@@ -1,5 +1,6 @@
 class Tile:
     BASE_COLOR = (186, 212, 193)
+    ALT_COLOR = (245, 245, 115)
     TEXT_COLOR = (0, 0, 0)
 
     def __init__(self, letter, points):

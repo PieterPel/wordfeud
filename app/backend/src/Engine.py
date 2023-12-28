@@ -4,6 +4,8 @@ import copy
 
 
 class Engine:
+    ALL_LETTER_LIST = [chr(letter) for letter in range(ord("A"), ord("Z") + 1)]
+
     def __init__(self, board):
         self.board = board
         self.trie = Trie(board.WORD_SET)
@@ -149,27 +151,35 @@ class Engine:
                 down += self.board[(x, y + dy)].tile.letter
                 dy -= 1
 
-            # TODO: I think I am still approaching the blanks wrongly, the blank can only be certain letters from the vertical constraints
-            # TODO: Hence that should also be taken into account when forming the word horizontally
-            # If nothing up and down or there is a blank, everything is allowed
-            if (up == "" and down == "") or " " in plank.letters:
-                allowed[anchor] = plank.letters
+            # If nothing up and down everything is allowed
+            if up == "" and down == "":
+                if " " in plank.letters:
+                    allowed[anchor] = self.ALL_LETTER_LIST
+                else:
+                    allowed[anchor] = plank.letters
             else:
                 # If word is allowed, add to dictionary
-                allowed_words = []
+                allowed_letters = []
                 for tile in plank:
-                    letter = tile.letter
-                    formed_word = f"{up[::-1]}{letter}{down}"
-                    if formed_word in self.board.WORD_SET:
-                        allowed_words.append(letter)
-                allowed[anchor] = allowed_words
+                    # Determine which letters to check
+                    if tile.blank:
+                        letters = self.ALL_LETTER_LIST
+                    else:
+                        letters = [tile.letter]
+
+                    # Cycle over the letters and check which are allowed
+                    for letter in letters:
+                        formed_word = f"{up[::-1]}{letter}{down}"
+                        if formed_word in self.board.WORD_SET:
+                            allowed_letters.append(letter)
+                allowed[anchor] = allowed_letters
 
         return allowed
 
     def get_left_extensions(self, anchor, plank, anchors):
         x, y = anchor
         laid_on_left = ""
-        possible_with_plank = set("")
+        possible_with_plank = {""}
 
         # Check if anchor on the left side of the board
         if x == 0:
@@ -212,7 +222,11 @@ class Engine:
         legal_words = set()
 
         # Check if there is an existing intersection between children of left_extension node and letters remaining on plank else return an empty set
-        remaining_set = set(letters_remaining_on_plank)
+        if " " in letters_remaining_on_plank:
+            remaining_set = set(self.ALL_LETTER_LIST)
+        else:
+            remaining_set = set(letters_remaining_on_plank)
+
         children_set = self.trie.get_children(left_extension)
         allowed_set = set(vertically_allowed_dict[anchor])
         anchor_options_set = remaining_set.intersection(
@@ -376,7 +390,7 @@ def grab_letter_from_tile_list(tile_list, letter):
         if tile is None:
             continue
 
-        if tile.letter == " ":
+        if tile.blank:
             blank = tile
 
         if tile.letter == letter:
@@ -384,9 +398,12 @@ def grab_letter_from_tile_list(tile_list, letter):
             return tile
 
     # Return a blank if letter not found and avalable
-    if " " in tile_list:
+    try:
         tile_list.remove(blank)
-        return blank
-    else:
-        print(letter)
+        blank_copy = copy.copy(blank)
+        blank_copy.letter = (
+            letter  # TODO: check if this isn't very memory intensive
+        )
+        return blank_copy
+    except ValueError:
         raise ValueError("This list cannot provide that letter or a blank")

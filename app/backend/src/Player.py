@@ -196,6 +196,8 @@ class Player:
         self.plank.remove_tiles(tiles)
         self.game.add_tiles_to_pile(tiles)
 
+        self.selected_tiles_to_swap = []
+
         self.end_turn()
 
     @only_on_turn
