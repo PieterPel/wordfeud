@@ -13,23 +13,41 @@ class Engine:
     def find_possible_moves(self, plank) -> set:
         anchors = self.get_anchors()
         vertical_dict = self.get_verticality_allowed(anchors, plank)
-        extension_dict = self.get_extension_dicts(anchors, plank)
+        extension_dict = self.get_left_extension_dict(anchors, plank)
 
-        def get_horizontal_moves(anchors, vertical_dict) -> set:
+        def get_horizontal_moves(
+            anchors, vertical_dict, extension_dict
+        ) -> set:
             nonlocal plank
 
             moves = []
 
-            # TODO: First get the maximum length of left extensions needed
+            lengths = set()
+            for anchor in anchors:
+                lengths.add(extension_dict[anchor][1])
+            max_length = max(lengths)
+
+            all_extensions = self.get_possible_left_plank_extensions(
+                max_length, plank
+            )
 
             # Loop over all anchors
             for anchor in anchors:
                 print(f"Now checking anchor: {anchor}")
                 # Get possible left extensions
-                (
-                    left_extension_fixed,
-                    left_extensions_plank,
-                ) = self.get_left_extensions(anchor, plank, anchors)
+                # (
+                #     left_extension_fixed,
+                #     left_extensions_plank,
+                # ) = self.get_left_extensions(anchor, plank, anchors)
+
+                left_extension_fixed, max_extension_length = extension_dict[
+                    anchor
+                ]
+                left_extensions_plank = set(
+                    x if len(x) < max_extension_length else ""
+                    for x in all_extensions
+                )
+
                 # Check if there is a fixed left_extension
                 if left_extension_fixed != "":
                     words = self.get_possible_words_from_left_extension(
@@ -87,7 +105,9 @@ class Engine:
 
         moves = []
         # Horizontal moves for normal board
-        moves.extend(get_horizontal_moves(anchors, vertical_dict))
+        moves.extend(
+            get_horizontal_moves(anchors, vertical_dict, extension_dict)
+        )
 
         print("Should start the turned board now")
 
@@ -105,9 +125,12 @@ class Engine:
         self.board = turned_board
         anchors = self.get_anchors()
         vertical_dict = self.get_verticality_allowed(anchors, plank)
+        extension_dict = self.get_left_extension_dict(anchors, plank)
         normal_moves = [
             move.get_turned_move()
-            for move in get_horizontal_moves(anchors, vertical_dict)
+            for move in get_horizontal_moves(
+                anchors, vertical_dict, extension_dict
+            )
         ]
         self.board = normal_board
 
@@ -188,6 +211,18 @@ class Engine:
 
         return allowed
 
+    def get_left_extension_dict(self, anchors, plank) -> dict:
+        extension_dict = dict()
+
+        for anchor in anchors:
+            fixed, max_length = self.get_left_extensions(
+                anchor, plank, anchors
+            )
+
+            extension_dict[anchor] = (fixed, max_length)
+
+        return extension_dict
+
     def get_left_extensions(self, anchor, plank, anchors):
         x, y = anchor
         laid_on_left = ""
@@ -213,12 +248,11 @@ class Engine:
                 and dx < len(plank.letters)
             ):
                 dx += 1
-            possible_with_plank = self.get_possible_left_plank_extensions(
-                dx - 1, plank
-            )
+            # possible_with_plank = self.get_possible_left_plank_extensions(
+            #     dx - 1, plank
+            # )
 
-        # TODO: Option;: just return dx - 1 here instead of possible_with_plank, later check maximum value, calculate possible extensions and only use those with a maximum length
-        return laid_on_left[::-1], possible_with_plank
+        return laid_on_left[::-1], dx - 1
 
     def get_possible_left_plank_extensions(self, max_length, plank) -> set:
         return self.trie.generate_prefix_combinations(
