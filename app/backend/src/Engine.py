@@ -7,106 +7,36 @@ class Engine:
     ALL_LETTER_LIST = [chr(letter) for letter in range(ord("A"), ord("Z") + 1)]
 
     def __init__(self, board):
+        """
+        Initializes the Engine object.
+
+        Args:
+            board (Board): The board object used by the engine.
+        """
         self.board = board
         self.trie = Trie(board.WORD_SET)
 
     def find_possible_moves(self, plank) -> set:
+        """
+        Finds all possible moves on the game board for the given plank.
+
+        Args:
+            plank: The current state of the game board.
+
+        Returns:
+            A set of possible moves that can be made on the game board.
+
+        """
         anchors = self.get_anchors()
         vertical_dict = self.get_verticality_allowed(anchors, plank)
         extension_dict = self.get_left_extension_dict(anchors, plank)
 
-        def get_horizontal_moves(
-            anchors, vertical_dict, extension_dict
-        ) -> set:
-            nonlocal plank
-
-            moves = []
-
-            lengths = set()
-            for anchor in anchors:
-                lengths.add(extension_dict[anchor][1])
-            max_length = max(lengths)
-
-            all_extensions = self.get_possible_left_plank_extensions(
-                max_length, plank
-            )
-
-            # Loop over all anchors
-            for anchor in anchors:
-                print(f"Now checking anchor: {anchor}")
-                # Get possible left extensions
-                # (
-                #     left_extension_fixed,
-                #     left_extensions_plank,
-                # ) = self.get_left_extensions(anchor, plank, anchors)
-
-                left_extension_fixed, max_extension_length = extension_dict[
-                    anchor
-                ]
-                left_extensions_plank = set(
-                    x if len(x) < max_extension_length else ""
-                    for x in all_extensions
-                )
-
-                # Check if there is a fixed left_extension
-                if left_extension_fixed != "":
-                    words = self.get_possible_words_from_left_extension(
-                        anchor,
-                        plank.letters,
-                        left_extension_fixed,
-                        vertical_dict,
-                    )
-
-                    # Turn these words into Moves
-                    moves.extend(
-                        self.turn_words_into_moves(
-                            words,
-                            anchor,
-                            plank,
-                            left_extension_fixed,
-                            fixed=True,
-                        )
-                    )
-
-                # Else there may be possiblities with the plank or without a left extension
-                else:
-                    for extension in left_extensions_plank:
-                        # Figure out which letters remain on the plank
-                        used_letters = [letter for letter in extension]
-                        remaining_letters = copy.copy(plank.letters)
-                        for letter in used_letters:
-                            if letter in remaining_letters:
-                                remaining_letters.remove(letter)
-                            else:
-                                remaining_letters.remove(" ")
-
-                        # Update the word list
-                        possible_words = (
-                            self.get_possible_words_from_left_extension(
-                                anchor,
-                                remaining_letters,
-                                extension,
-                                vertical_dict,
-                            )
-                        )
-
-                        if possible_words != set():
-                            moves.extend(
-                                self.turn_words_into_moves(
-                                    possible_words,
-                                    anchor,
-                                    plank,
-                                    extension,
-                                    fixed=False,
-                                )
-                            )
-
-            return moves
-
         moves = []
         # Horizontal moves for normal board
         moves.extend(
-            get_horizontal_moves(anchors, vertical_dict, extension_dict)
+            self.get_horizontal_moves(
+                anchors, vertical_dict, extension_dict, plank
+            )
         )
 
         print("Should start the turned board now")
@@ -128,8 +58,8 @@ class Engine:
         extension_dict = self.get_left_extension_dict(anchors, plank)
         normal_moves = [
             move.get_turned_move()
-            for move in get_horizontal_moves(
-                anchors, vertical_dict, extension_dict
+            for move in self.get_horizontal_moves(
+                anchors, vertical_dict, extension_dict, plank
             )
         ]
         self.board = normal_board
@@ -139,6 +69,14 @@ class Engine:
         return moves
 
     def get_anchors(self) -> set:
+        """
+        Get the set of anchor coordinates on the board.
+
+        An anchor coordinate is an empty cell adjacent to a filled cell.
+
+        Returns:
+            set: A set of anchor coordinates.
+        """
         anchors = set()
 
         # Check if middle is filled, else add to anchors
@@ -160,6 +98,16 @@ class Engine:
         return anchors
 
     def get_verticality_allowed(self, anchors, plank) -> dict:
+        """Gets a dictionary containing the letters of the plank that
+        are allowed at the anchors by verticality
+
+        Args:
+            anchors (list): _description_
+            plank (Plank): _description_
+
+        Returns:
+            dict: _description_
+        """
         allowed = dict()
 
         # Loop over all anchors
@@ -212,6 +160,17 @@ class Engine:
         return allowed
 
     def get_left_extension_dict(self, anchors, plank) -> dict:
+        """
+        Returns a dictionary containing the left extensions for each anchor position.
+
+        Args:
+            anchors (list): A list of anchor positions.
+            plank (str): The current state of the game board.
+
+        Returns:
+            dict: A dictionary where the keys are anchor positions and the values are tuples
+                  containing the fixed extensions and the maximum length of the extensions.
+        """
         extension_dict = dict()
 
         for anchor in anchors:
@@ -222,6 +181,103 @@ class Engine:
             extension_dict[anchor] = (fixed, max_length)
 
         return extension_dict
+
+    def get_horizontal_moves(
+        self, anchors, vertical_dict, extension_dict, plank
+    ) -> set:
+        """
+        Get all possible horizontal moves for the given anchors, vertical dictionary,
+        extension dictionary, and plank.
+
+        Parameters:
+        anchors (list): List of anchor positions.
+        vertical_dict (dict): Dictionary containing vertical words.
+        extension_dict (dict): Dictionary containing extension information for each anchor.
+        plank (Plank): The plank object representing the game board.
+
+        Returns:
+        set: Set of all possible horizontal moves.
+        """
+        moves = []
+
+        lengths = set()
+        for anchor in anchors:
+            lengths.add(extension_dict[anchor][1])
+        max_length = max(lengths)
+
+        all_extensions = self.get_possible_left_plank_extensions(
+            max_length, plank
+        )
+
+        # Loop over all anchors
+        for anchor in anchors:
+            print(f"Now checking anchor: {anchor}")
+            # Get possible left extensions
+            # (
+            #     left_extension_fixed,
+            #     left_extensions_plank,
+            # ) = self.get_left_extensions(anchor, plank, anchors)
+
+            left_extension_fixed, max_extension_length = extension_dict[anchor]
+            left_extensions_plank = set(
+                x if len(x) < max_extension_length else ""
+                for x in all_extensions
+            )
+
+            # Check if there is a fixed left_extension
+            if left_extension_fixed != "":
+                words = self.get_possible_words_from_left_extension(
+                    anchor,
+                    plank.letters,
+                    left_extension_fixed,
+                    vertical_dict,
+                )
+
+                # Turn these words into Moves
+                moves.extend(
+                    self.turn_words_into_moves(
+                        words,
+                        anchor,
+                        plank,
+                        left_extension_fixed,
+                        fixed=True,
+                    )
+                )
+
+            # Else there may be possiblities with the plank or without a left extension
+            else:
+                for extension in left_extensions_plank:
+                    # Figure out which letters remain on the plank
+                    used_letters = [letter for letter in extension]
+                    remaining_letters = copy.copy(plank.letters)
+                    for letter in used_letters:
+                        if letter in remaining_letters:
+                            remaining_letters.remove(letter)
+                        else:
+                            remaining_letters.remove(" ")
+
+                    # Update the word list
+                    possible_words = (
+                        self.get_possible_words_from_left_extension(
+                            anchor,
+                            remaining_letters,
+                            extension,
+                            vertical_dict,
+                        )
+                    )
+
+                    if possible_words != set():
+                        moves.extend(
+                            self.turn_words_into_moves(
+                                possible_words,
+                                anchor,
+                                plank,
+                                extension,
+                                fixed=False,
+                            )
+                        )
+
+        return moves
 
     def get_left_extensions(self, anchor, plank, anchors):
         x, y = anchor
@@ -255,6 +311,16 @@ class Engine:
         return laid_on_left[::-1], dx - 1
 
     def get_possible_left_plank_extensions(self, max_length, plank) -> set:
+        """
+        Generates all possible left plank extensions for a given maximum length and plank.
+
+        Args:
+            max_length (int): The maximum length of the extensions.
+            plank (Plank): The plank object representing the current state of the game.
+
+        Returns:
+            set: A set of all possible left plank extensions.
+        """
         return self.trie.generate_prefix_combinations(
             max_length, plank.letters
         )
@@ -393,6 +459,20 @@ class Engine:
     def turn_words_into_moves(
         self, words, anchor, plank, left_extension, fixed: bool
     ) -> list:
+        """
+        Converts a list of words into a list of moves based on the given parameters.
+
+        Args:
+            words (list): A list of words to be converted into moves.
+            anchor (tuple): The coordinates of the anchor tile.
+            plank (Plank): The plank object representing the current state of the game board.
+            left_extension (str): The left extension of the word being formed.
+            fixed (bool): Indicates whether the left extension is fixed or not.
+
+        Returns:
+            list: A list of Move objects representing the possible moves.
+
+        """
         moves = []
         x, y = anchor
 
@@ -442,6 +522,15 @@ class Engine:
         return moves
 
     def coordinates_on_board(self, coords: tuple):
+        """
+        Check if the given coordinates are within the boundaries of the game board.
+
+        Args:
+            coords (tuple): The coordinates to check, in the format (x, y).
+
+        Returns:
+            bool: True if the coordinates are on the board, False otherwise.
+        """
         x, y = coords
         if x < 0 or y < 0:
             return False
@@ -452,6 +541,19 @@ class Engine:
 
 
 def grab_letter_from_tile_list(tile_list, letter):
+    """
+    Grabs a letter from the tile list and removes it from the list.
+
+    Args:
+        tile_list (list): The list of tiles to search for the letter.
+        letter (str): The letter to grab from the tile list.
+
+    Returns:
+        Tile: The tile object containing the grabbed letter.
+
+    Raises:
+        ValueError: If the letter is not found in the tile list or a blank tile is not available.
+    """
     # Also removes the letter from the list
     # Check for the letter on the tiles
     for tile in tile_list:
@@ -465,7 +567,7 @@ def grab_letter_from_tile_list(tile_list, letter):
             tile_list.remove(tile)
             return tile
 
-    # Return a blank if letter not found and avalable
+    # Return a blank if letter not found and available
     try:
         tile_list.remove(blank)
         blank_copy = copy.copy(blank)
