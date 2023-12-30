@@ -358,10 +358,8 @@ class Engine:
 
         # Keep scanning until the edge of the board or the plank is empty and there are no laid down tiles to the left
         while x + dx < self.board.LENGTH and (
-            num_non_fixed
-            <= len(
-                letters_remaining_on_plank or self.board[(x + dx, y)].filled
-            )
+            num_non_fixed <= len(letters_remaining_on_plank)
+            or self.board[(x + dx, y)].filled
         ):
             scanned_coords = (x + dx, y)
             dx += 1
@@ -391,9 +389,9 @@ class Engine:
         ):
             new_extensions = set()
             infeasible_extensions = set()
+
             # Loop over all already available prefixes
             for extension in extensions:
-                # Skip if the prefix has a length that is too short i.e. had no options in previous run
                 # if len(extension) - 2 < index: # Had this here first
                 if extension in dead_extensions:
                     continue
