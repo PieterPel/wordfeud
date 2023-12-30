@@ -1,8 +1,11 @@
 from Player import Player
 from Game import Game
+import random
 
 
 def main():
+    random.seed(1913)
+
     # Create a Player instance
     player1 = Player("pete")
     player2 = Player("Mike")

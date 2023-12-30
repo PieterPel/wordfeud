@@ -58,8 +58,6 @@ class LegalityChecker:
             print("Illegal move, one of the cells is already filled")
             return False
 
-        # TODO: should also be able to have already filled tile between the words
-
         # Check for the move forming a connecting straight line
         all_x = [x for x, _ in coordinates]
         all_y = [y for _, y in coordinates]
@@ -183,18 +181,3 @@ def find_missing(lst):
     return [
         i for x, y in zip(lst, lst[1:]) for i in range(x + 1, y) if y - x > 1
     ]
-
-
-# # Check for the words being in a straight line
-#         all_x = [x for x, _ in coordinates]
-#         all_y = [y for _, y in coordinates]
-#         if not (
-#             (len(set(all_x)) == 1 and checkConsecutive(all_y))
-#             or (len(set(all_y)) == 1 and checkConsecutive(all_x))
-#         ):
-#             print("The tiles aren't in a connecting straight line")
-#             return False
-
-#         if not is_straight_line(coordinates, self.board.filled_coordinates):
-#             print("The move doesnt form a connecting straight line")
-#             return False

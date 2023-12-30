@@ -202,7 +202,10 @@ class Engine:
 
         lengths = set()
         for anchor in anchors:
-            lengths.add(extension_dict[anchor][1])
+            try:
+                lengths.add(extension_dict[anchor][1])
+            except:
+                print(extension_dict[anchor][1])
         max_length = max(lengths)
 
         all_extensions = self.get_possible_left_plank_extensions(
@@ -219,6 +222,12 @@ class Engine:
             # ) = self.get_left_extensions(anchor, plank, anchors)
 
             left_extension_fixed, max_extension_length = extension_dict[anchor]
+
+            if isinstance(max_extension_length, set):
+                print(anchor)
+                print(extension_dict[anchor])
+                print(max_extension_length)
+
             left_extensions_plank = set(
                 x if len(x) < max_extension_length else ""
                 for x in all_extensions
@@ -282,11 +291,10 @@ class Engine:
     def get_left_extensions(self, anchor, plank, anchors):
         x, y = anchor
         laid_on_left = ""
-        possible_with_plank = {""}
 
         # Check if anchor on the left side of the board
         if x == 0:
-            return laid_on_left, possible_with_plank
+            return laid_on_left, 0
 
         dx = 1
         # Filled tile to the left
@@ -304,9 +312,6 @@ class Engine:
                 and dx < len(plank.letters)
             ):
                 dx += 1
-            # possible_with_plank = self.get_possible_left_plank_extensions(
-            #     dx - 1, plank
-            # )
 
         return laid_on_left[::-1], dx - 1
 
@@ -356,7 +361,7 @@ class Engine:
         laid_down = []
         vertically_allowed = []
 
-        # Keep scanning until the edge of the board or the plank is empty and there are no laid down tiles to the left
+        # Keep scanning until the edge of the board or the plank is empty or there are no laid down tiles to the left
         while x + dx < self.board.LENGTH and (
             num_non_fixed <= len(letters_remaining_on_plank)
             or self.board[(x + dx, y)].filled
@@ -370,6 +375,8 @@ class Engine:
             else:
                 num_non_fixed += 1
                 laid_down.append(None)
+                vertically_allowed.append([])
+                continue
 
             # Check if there is a constrained anchor
             if scanned_coords in vertically_allowed_dict.keys():
@@ -377,7 +384,7 @@ class Engine:
                     vertically_allowed_dict[scanned_coords]
                 )
             else:
-                vertically_allowed.append(letters_remaining_on_plank)
+                vertically_allowed.append(self.ALL_LETTER_LIST)
 
         # First options are the possibilities at the anchor
         extensions = anchor_options_set
@@ -392,7 +399,6 @@ class Engine:
 
             # Loop over all already available prefixes
             for extension in extensions:
-                # if len(extension) - 2 < index: # Had this here first
                 if extension in dead_extensions:
                     continue
 
@@ -400,7 +406,9 @@ class Engine:
                 if fixed_letter is None:
                     # Figure out remaining letters
                     letters_in_prefix = [letter for letter in extension]
-                    fixed_tiles_passed = laid_down[: index + 1]
+                    fixed_tiles_passed = laid_down[
+                        :index
+                    ]  # TODO Check if this is correct, had : index + 1 here first
                     remaining_letters = copy.deepcopy(
                         letters_remaining_on_plank
                     )
@@ -414,8 +422,19 @@ class Engine:
                             remaining_letters.remove(letter)
 
                     # Get the possible options to lay down
-                    if " " in remaining_letters:
-                        options = set(vertical_allowed_tiles).intersection(
+                    if (
+                        " " in remaining_letters
+                    ):  # If there is a blank remaining
+                        # If the cell is an anchor, constrained vertically
+                        if (
+                            x + 1 + index,
+                            y,
+                        ) in vertically_allowed_dict.keys():
+                            vertical_set = set(vertical_allowed_tiles)
+                        # If not, every letter is allowed
+                        else:
+                            vertical_set = set(self.ALL_LETTER_LIST)
+                        options = vertical_set.intersection(
                             self.trie.get_children(left_extension + extension)
                         )
                     else:
@@ -480,11 +499,12 @@ class Engine:
                 if len(word) < 2:
                     continue
 
-                tiles = copy.copy(plank.tile_list)
-
                 move = Move()
                 dx = 0
                 part_to_lay_down = word[len(left_extension) :]
+
+                tiles = copy.copy(plank.tile_list)
+
                 for letter in part_to_lay_down:
                     if self.board[(x + dx, y)].filled:
                         dx += 1
@@ -502,17 +522,19 @@ class Engine:
                 if len(word) < 2:
                     continue
 
-                tiles = copy.copy(plank.tile_list)
                 move = Move()
                 dx = -len(left_extension)
 
+                tiles = [el for el in plank.tile_list]
+                print(word)
+                print(left_extension)
                 for letter in word:
                     print(x + dx, y, letter)
                     if self.board[(x + dx, y)].filled:
                         dx += 1
                         continue
-
                     tile = grab_letter_from_tile_list(tiles, letter)
+
                     move[tile] = (x + dx, y)
                     dx += 1
 
@@ -554,7 +576,9 @@ def grab_letter_from_tile_list(tile_list, letter):
     """
     # Also removes the letter from the list
     # Check for the letter on the tiles
-    for tile in tile_list:
+
+    tile_list_copy = tile_list.copy()
+    for tile in tile_list_copy:
         if tile is None:
             continue
 

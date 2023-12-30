@@ -284,7 +284,7 @@ class Board:
         x, y = coordinates
 
         # Return an empty cell if the coordinate arent on the board
-        if x < 0 or y < 0 or x > self.LENGTH - 1 or y > self.HEIGHT:
+        if x < 0 or y < 0 or x >= self.LENGTH or y >= self.HEIGHT:
             return Cell(-1, -1, "")
         # Else return the cell at the grid
         else:

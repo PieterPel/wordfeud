@@ -1,5 +1,6 @@
 from Tile import Tile
 import random
+import copy
 
 
 class Pile:
@@ -71,7 +72,7 @@ class Pile:
 
         for letter, amount in self.INITIAL_AMOUNTS.items():
             tile = Tile(letter, self.LETTER_POINTS[letter])
-            tile_list.extend(amount * [tile])
+            tile_list.extend(copy.deepcopy(tile) for _ in range(amount))
 
         random.shuffle(tile_list)
         return tile_list

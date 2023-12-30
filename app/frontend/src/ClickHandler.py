@@ -107,6 +107,7 @@ class ClickHandler:
                         self.game.shown_player.possible_moves = sorted_moves
 
                         if len(sorted_moves) > 0:
+                            print(f"Best move: {sorted_moves[0]}")
                             self.game.shown_player.lay_move_on_board(
                                 sorted_moves[0]
                             )
