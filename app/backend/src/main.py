@@ -4,7 +4,7 @@ import random
 
 
 def main():
-    random.seed(1913)
+    random.seed(1914)
 
     # Create a Player instance
     player1 = Player("pete")

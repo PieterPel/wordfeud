@@ -372,11 +372,11 @@ class Engine:
             # Check if there already is a tile
             if self.board[scanned_coords].filled:
                 laid_down.append(self.board[scanned_coords].tile.letter)
+                vertically_allowed.append([])
+                continue
             else:
                 num_non_fixed += 1
                 laid_down.append(None)
-                vertically_allowed.append([])
-                continue
 
             # Check if there is a constrained anchor
             if scanned_coords in vertically_allowed_dict.keys():
@@ -388,7 +388,9 @@ class Engine:
 
         # First options are the possibilities at the anchor
         extensions = anchor_options_set
+        print(f"anchor {anchor}, options: {anchor_options_set}")
         dead_extensions = set()
+        already_passed = set()
 
         # Look at right extensions until the maximum possible depth
         for index, (fixed_letter, vertical_allowed_tiles) in enumerate(
@@ -400,6 +402,9 @@ class Engine:
             # Loop over all already available prefixes
             for extension in extensions:
                 if extension in dead_extensions:
+                    continue
+
+                if extension in already_passed:
                     continue
 
                 # If there is no tile already laid down
@@ -447,13 +452,17 @@ class Engine:
                                 )
                             )
                         )
-
+                    print(f"options: {options}")
                     if options == set():
+                        print(dead_extensions)
                         dead_extensions.add(extension)
 
                     # Add the options
                     for option in options:
                         new_extensions.add(extension + option)
+
+                    # Flag as already passed
+                    already_passed.add(extension)
 
                 # If there is a tile already laid down, the prefix actually can't be laid down
                 else:
